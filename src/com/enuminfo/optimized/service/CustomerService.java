@@ -6,6 +6,7 @@ package com.enuminfo.optimized.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.enuminfo.optimized.backend.entity.CustomerEntity;
 import com.enuminfo.optimized.backend.repository.CustomerRepository;
@@ -14,6 +15,7 @@ import com.enuminfo.optimized.frontend.model.Customer;
 
 /**
  * Customer Service
+ * 
  * @author Kumar
  */
 public class CustomerService extends AbstractService<Customer> {
@@ -59,13 +61,13 @@ public class CustomerService extends AbstractService<Customer> {
 	}
 
 	@Override
-	public List<Customer> getListWithNamedQueryAndParameters(String filter) {
+	public List<Customer> getListWithNamedQueryAndParameters(Map<String, Object> parameters) {
 		List<Customer> customers = new ArrayList<>();
 		return customers;
 	}
 
 	@Override
-	public List<Customer> getListWithNamedQueryAndParameters(String filter, int start, int end) {
+	public List<Customer> getListWithNamedQueryAndParameters(Map<String, Object> parameters, int start, int end) {
 		List<Customer> customers = new ArrayList<>();
 		return customers;
 	}
@@ -78,6 +80,10 @@ public class CustomerService extends AbstractService<Customer> {
 
 	@Override
 	public List<ComboBoxItem> getListOfReferences() {
-		return null;
+		List<ComboBoxItem> comboBoxItems = new ArrayList<ComboBoxItem>();
+		getListWithNamedQuery().forEach(model -> {
+			comboBoxItems.add(new ComboBoxItem(String.valueOf(model.getId()), model.getCompanyName()));
+		});
+		return comboBoxItems;
 	}
 }

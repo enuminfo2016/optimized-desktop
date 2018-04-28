@@ -10,9 +10,10 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  * Custom Table Model
+ * 
  * @author Kumar
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class EntityTableModel extends AbstractTableModel {
 
 	/**
@@ -37,25 +38,25 @@ public class EntityTableModel extends AbstractTableModel {
 			columns.add(column);
 		}
 	}
-	
+
 	public void addColumn(EntityTableColumn column) {
 		addColumnToList(column);
 	}
-	
+
 	public EntityTableColumn getColumn(int index) {
 		return (EntityTableColumn) columns.get(index);
 	}
-	
+
 	@Override
 	public int getRowCount() {
 		return data.size();
 	}
-	
+
 	@Override
 	public int getColumnCount() {
 		return columns.size();
 	}
-	
+
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		EntityTableColumn column = getColumn(columnIndex);

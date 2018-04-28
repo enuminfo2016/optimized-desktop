@@ -27,7 +27,9 @@ import com.enuminfo.optimized.frontend.model.Base;
 
 /**
  * Preview panel for page views.
- * @param <T> entity
+ * 
+ * @param <T>
+ *            entity
  * @author Kumar
  */
 public abstract class AbstractPreviewPanel<T extends Base> extends JPanel {
@@ -46,12 +48,13 @@ public abstract class AbstractPreviewPanel<T extends Base> extends JPanel {
 		this.model = model;
 		popFields();
 	}
-	
+
 	public T getModel() {
 		return model;
 	}
 
 	public abstract void buildUI();
+
 	public abstract void popFields();
 
 	private void initComponents() {

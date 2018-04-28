@@ -9,16 +9,18 @@ import java.util.Map;
 
 /**
  * Query Parameter.
+ * 
  * <pre>
  * // import static com.devsniper.desktop.customers.service.QueryParameter.*;
  * count = categoryService.findWithNamedQuery(Category.FIND_ALL, with(&quot;name&quot;, "filter").parameters()).size();
  * </pre>
+ * 
  * @author Kumar
  */
 public class QueryParameter {
 
 	private Map<String, Object> parameters;
-	
+
 	private QueryParameter(String name, Object value) {
 		parameters = new HashMap<>();
 		parameters.put(name, value);

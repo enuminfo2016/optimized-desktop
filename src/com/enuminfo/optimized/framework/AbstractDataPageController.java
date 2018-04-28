@@ -11,14 +11,16 @@ import com.enuminfo.optimized.service.AbstractService;
 
 /**
  * Abstract Data Page Controller.
- * @param <T> model
+ * 
+ * @param <T>
+ *            model
  * @author Kumar
  */
 public abstract class AbstractDataPageController<T extends Base> implements DataPageController<T> {
 
 	private AbstractService<T> service;
 	private DataPageView<T> dataPageView;
-	
+
 	public AbstractDataPageController() {
 		// TODO Auto-generated constructor stub
 	}

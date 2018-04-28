@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 
 /**
  * Icon Label component.
+ * 
  * @author Kumar
  */
 public class IconLabel extends JLabel {
@@ -22,11 +23,11 @@ public class IconLabel extends JLabel {
 	public IconLabel(ImageIcon icon) {
 		this(icon, "", JLabel.CENTER, JLabel.RIGHT);
 	}
-	
+
 	public IconLabel(ImageIcon icon, int verticalTextPos, int horizontalTextPos) {
 		this(icon, "", verticalTextPos, horizontalTextPos);
 	}
-	
+
 	public IconLabel(ImageIcon icon, String text, int verticalTextPos, int horizontalTextPos) {
 		super(text, icon, SwingConstants.CENTER);
 		setVerticalTextPosition(verticalTextPos);

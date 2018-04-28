@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 /**
  * Entity table column model
+ * 
  * @author Kumar
  */
 @SuppressWarnings("rawtypes")
@@ -27,7 +28,7 @@ public class EntityTableColumn {
 	public EntityTableColumn(String title, String fieldName, Class classType, int width) {
 		this(title, fieldName, classType, width, false, true);
 	}
-	
+
 	public EntityTableColumn(String title, String fieldName, Class classType, int width, boolean editable,
 			boolean visible) {
 		this.title = title;
@@ -37,7 +38,7 @@ public class EntityTableColumn {
 		this.editable = editable;
 		this.visible = visible;
 	}
-	
+
 	public Object getValue(Object entity) {
 		try {
 			Field field = entity.getClass().getDeclaredField(getFieldName());
@@ -52,7 +53,7 @@ public class EntityTableColumn {
 		}
 		return null;
 	}
-	
+
 	public void setValue(Object entity, Object value) {
 		try {
 			Field field = entity.getClass().getDeclaredField(getFieldName());

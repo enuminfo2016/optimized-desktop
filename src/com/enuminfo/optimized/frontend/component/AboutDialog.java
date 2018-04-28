@@ -28,6 +28,7 @@ import org.jdesktop.swingx.JXHyperlink;
 
 /**
  * About Dialog
+ * 
  * @author Kumar
  */
 public class AboutDialog extends JDialog {
@@ -36,7 +37,7 @@ public class AboutDialog extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private JXHeader xheader;
 	private JButton btnOk;
 	private Action acOk;
@@ -128,7 +129,7 @@ public class AboutDialog extends JDialog {
 		acSourceCode = new AbstractAction("") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		};
 	}

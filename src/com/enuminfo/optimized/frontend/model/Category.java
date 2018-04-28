@@ -6,6 +6,7 @@ package com.enuminfo.optimized.frontend.model;
 
 /**
  * Category DTO
+ * 
  * @author Kumar
  */
 public class Category extends Base {
@@ -15,7 +16,7 @@ public class Category extends Base {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String name;
-	
+
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}

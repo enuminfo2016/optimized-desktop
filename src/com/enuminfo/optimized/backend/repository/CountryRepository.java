@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.CountryEntity;
 
 /**
  * Country Repository
+ * 
  * @author Kumar
  */
 public class CountryRepository extends AbstractRepository<CountryEntity> {

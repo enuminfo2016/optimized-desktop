@@ -6,10 +6,12 @@ package com.enuminfo.optimized.framework;
 
 /**
  * Page View interface
+ * 
  * @author Kumar
  */
 public interface PageView extends View {
 
 	void init(PageController controller);
+
 	PageController getController();
 }

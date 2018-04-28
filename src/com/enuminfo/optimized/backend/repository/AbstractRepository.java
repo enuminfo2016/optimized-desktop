@@ -16,7 +16,9 @@ import javax.persistence.Query;
 
 /**
  * Abstract Repository for all repositories.
- * @param <T> entity
+ * 
+ * @param <T>
+ *            entity
  * @author Kumar
  */
 @SuppressWarnings("unchecked")
@@ -28,7 +30,7 @@ public abstract class AbstractRepository<T extends BaseEntity> {
 	public AbstractRepository(Class<T> entityClass) {
 		this.entityClass = entityClass;
 	}
-	
+
 	public EntityManager getEntityManager() {
 		if (entityManager == null)
 			entityManager = JpaUtil.getEntityManager();
@@ -84,7 +86,7 @@ public abstract class AbstractRepository<T extends BaseEntity> {
 			query.setParameter(entry.getKey(), entry.getValue());
 		return query.getResultList();
 	}
-	
+
 	public List<T> findWithNamedQuery(String namedQueryName, Map<String, Object> parameters, int start, int end) {
 		Set<Entry<String, Object>> params = parameters.entrySet();
 		Query query = getEntityManager().createNamedQuery(namedQueryName);
@@ -109,7 +111,7 @@ public abstract class AbstractRepository<T extends BaseEntity> {
 	public List<T> findByNativeQuery(String sql, int resultLimit) {
 		return getEntityManager().createNativeQuery(sql, entityClass).setMaxResults(resultLimit).getResultList();
 	}
-	
+
 	public List<T> findByNativeQuery(String sql, int start, int end) {
 		Query query = getEntityManager().createNativeQuery(sql, entityClass);
 		query.setMaxResults(end - start);

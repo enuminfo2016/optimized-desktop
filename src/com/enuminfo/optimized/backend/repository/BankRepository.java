@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.BankEntity;
 
 /**
  * Bank Repository
+ * 
  * @author Kumar
  */
 public class BankRepository extends AbstractRepository<BankEntity> {

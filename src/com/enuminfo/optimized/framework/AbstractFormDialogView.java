@@ -32,7 +32,9 @@ import com.enuminfo.optimized.frontend.model.Base;
 
 /**
  * Abstract Form View for data editing in JDialog.
- * @param <T> entity
+ * 
+ * @param <T>
+ *            entity
  * @author Kumar
  */
 public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
@@ -75,9 +77,13 @@ public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
 	}
 
 	public abstract String getFormTitle();
+
 	public abstract String getFormIconPath();
+
 	public abstract void buildUI();
+
 	public abstract void popFields();
+
 	public abstract void pushFields();
 
 	public boolean onSave() {
@@ -112,11 +118,11 @@ public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
 	}
 
 	public void onPrintPreview() {
-		
+
 	}
 
 	public void onPrint() {
-		
+
 	}
 
 	public abstract void onHelp();
@@ -136,7 +142,8 @@ public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
 	private JMenuBar buildMenuBar() {
 		menuBar = new JMenuBar();
 		// File menu
-		//JMenu mnuFile = new JMenu(I18n.COMMON.getString("AbstractFormView.Menu.File"));
+		// JMenu mnuFile = new
+		// JMenu(I18n.COMMON.getString("AbstractFormView.Menu.File"));
 		JMenu mnuFile = new JMenu("");
 		mnuFile.add(acSave);
 		mnuFile.add(new JSeparator());
@@ -148,9 +155,10 @@ public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
 		mnuFile.add(acClose);
 		menuBar.add(mnuFile);
 		// Help menu
-		//JMenu mnuHelp = new JMenu(I18n.COMMON.getString("AbstractFormView.Menu.Help"));
-		//mnuHelp.add(acHelp);
-		//menuBar.add(mnuHelp);
+		// JMenu mnuHelp = new
+		// JMenu(I18n.COMMON.getString("AbstractFormView.Menu.Help"));
+		// mnuHelp.add(acHelp);
+		// menuBar.add(mnuHelp);
 		return menuBar;
 	}
 
@@ -162,7 +170,7 @@ public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
 			toolBar.add(ViewHelpers.createToolButton(acPrintPreview, true, true));
 			toolBar.add(ViewHelpers.createToolButton(acPrint, true, true));
 		}
-		//toolBar.add(ViewHelpers.createToolButton(acHelp, true, true));
+		// toolBar.add(ViewHelpers.createToolButton(acHelp, true, true));
 		toolBar.add(ViewHelpers.createToolButton(acClose, true, true));
 		return toolBar;
 	}

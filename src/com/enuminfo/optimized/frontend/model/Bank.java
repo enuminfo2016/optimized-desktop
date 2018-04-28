@@ -6,6 +6,7 @@ package com.enuminfo.optimized.frontend.model;
 
 /**
  * Bank DTO
+ * 
  * @author Kumar
  */
 public class Bank extends Base {
@@ -20,7 +21,7 @@ public class Bank extends Base {
 	private String branch;
 	private String contact;
 	private String address;
-	
+
 	public Bank() {
 		// TODO Auto-generated constructor stub
 	}

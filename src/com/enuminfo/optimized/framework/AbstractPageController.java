@@ -6,12 +6,13 @@ package com.enuminfo.optimized.framework;
 
 /**
  * Abstract Page Controller
+ * 
  * @author Kumar
  */
 public abstract class AbstractPageController implements PageController {
 
 	private PageView pageView;
-	
+
 	public AbstractPageController() {
 		// TODO Auto-generated constructor stub
 	}

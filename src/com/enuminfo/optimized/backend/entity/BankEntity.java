@@ -16,15 +16,14 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Bank Entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.BANK)
-@NamedQueries ({ 
-	@NamedQuery (name = BankEntity.FIND_ALL, query = "SELECT entity FROM BankEntity entity"),
-	@NamedQuery (name = BankEntity.FIND_BY_NAME, query = "SELECT entity FROM BankEntity entity WHERE entity.name LIKE :name") 
-})
-@AttributeOverride (name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.BANK)
+@NamedQueries({ @NamedQuery(name = BankEntity.FIND_ALL, query = "SELECT entity FROM BankEntity entity"),
+		@NamedQuery(name = BankEntity.FIND_BY_NAME, query = "SELECT entity FROM BankEntity entity WHERE entity.name LIKE :name") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class BankEntity extends BaseEntity {
 
 	/**
@@ -34,24 +33,24 @@ public class BankEntity extends BaseEntity {
 	public static final String FIND_ALL = "Bank.FindAll";
 	public static final String FIND_BY_NAME = "Bank.FindByName";
 
-	@Column (name = ColumnType.NAME)
+	@Column(name = ColumnType.NAME)
 	private String name;
 
-	@Column (name = ColumnType.IFSC)
+	@Column(name = ColumnType.IFSC)
 	private String ifsc;
-	
-	@Column (name = ColumnType.MICR)
+
+	@Column(name = ColumnType.MICR)
 	private String micr;
-	
-	@Column (name = ColumnType.BRANCH)
+
+	@Column(name = ColumnType.BRANCH)
 	private String branch;
-	
-	@Column (name = ColumnType.ADDRESS)
+
+	@Column(name = ColumnType.ADDRESS)
 	private String address;
-	
-	@Column (name = ColumnType.CONTACT)
+
+	@Column(name = ColumnType.CONTACT)
 	private String contact;
-	
+
 	public BankEntity() {
 		// TODO Auto-generated constructor stub
 	}

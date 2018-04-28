@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.CategoryEntity;
 
 /**
  * Category Repository
+ * 
  * @author Kumar
  */
 public class CategoryRepository extends AbstractRepository<CategoryEntity> {

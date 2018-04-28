@@ -6,6 +6,7 @@ package com.enuminfo.optimized.frontend.model;
 
 /**
  * Location DTO
+ * 
  * @author Kumar
  */
 public class Location extends Base {
@@ -20,7 +21,7 @@ public class Location extends Base {
 	private String state;
 	private String country;
 	private boolean status;
-	
+
 	public Location() {
 		// TODO Auto-generated constructor stub
 	}

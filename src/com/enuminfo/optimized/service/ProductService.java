@@ -4,10 +4,9 @@
  */
 package com.enuminfo.optimized.service;
 
-import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.enuminfo.optimized.backend.entity.ProductEntity;
 import com.enuminfo.optimized.backend.repository.CategoryRepository;
@@ -17,6 +16,7 @@ import com.enuminfo.optimized.frontend.model.Product;
 
 /**
  * Product Service
+ * 
  * @author Kumar
  */
 public class ProductService extends AbstractService<Product> {
@@ -78,32 +78,34 @@ public class ProductService extends AbstractService<Product> {
 	}
 
 	@Override
-	public List<Product> getListWithNamedQueryAndParameters(String filter) {
+	public List<Product> getListWithNamedQueryAndParameters(Map<String, Object> parameters) {
 		List<Product> products = new ArrayList<>();
-		((ProductRepository) getRepository()).findWithNamedQuery(getNamedQueryWithFilter(), with("code", "%" + filter + "%").parameters()).forEach(entity -> {
-			Product product = new Product();
-			product.setId(entity.getId());
-			product.setName(entity.getName());
-			product.setCode(entity.getCode());
-			product.setCId(entity.getCategory().getId());
-			product.setCategory(entity.getCategory().getName());
-			products.add(product);
-		});
+		((ProductRepository) getRepository()).findWithNamedQuery(getNamedQueryWithFilter(), parameters)
+				.forEach(entity -> {
+					Product product = new Product();
+					product.setId(entity.getId());
+					product.setName(entity.getName());
+					product.setCode(entity.getCode());
+					product.setCId(entity.getCategory().getId());
+					product.setCategory(entity.getCategory().getName());
+					products.add(product);
+				});
 		return products;
 	}
 
 	@Override
-	public List<Product> getListWithNamedQueryAndParameters(String filter, int start, int end) {
+	public List<Product> getListWithNamedQueryAndParameters(Map<String, Object> parameters, int start, int end) {
 		List<Product> products = new ArrayList<>();
-		((ProductRepository) getRepository()).findWithNamedQuery(getNamedQueryWithFilter(), with("code", "%" + filter + "%").parameters(), start, end).forEach(entity -> {
-			Product product = new Product();
-			product.setId(entity.getId());
-			product.setName(entity.getName());
-			product.setCode(entity.getCode());
-			product.setCId(entity.getCategory().getId());
-			product.setCategory(entity.getCategory().getName());
-			products.add(product);
-		});
+		((ProductRepository) getRepository()).findWithNamedQuery(getNamedQueryWithFilter(), parameters, start, end)
+				.forEach(entity -> {
+					Product product = new Product();
+					product.setId(entity.getId());
+					product.setName(entity.getName());
+					product.setCode(entity.getCode());
+					product.setCId(entity.getCategory().getId());
+					product.setCategory(entity.getCategory().getName());
+					products.add(product);
+				});
 		return products;
 	}
 

@@ -6,6 +6,7 @@ package com.enuminfo.optimized.frontend.model;
 
 /**
  * Customer DTO
+ * 
  * @author Kumar
  */
 public class Customer extends Base {
@@ -20,23 +21,23 @@ public class Customer extends Base {
 	private long companyFax;
 	private String companyEmail;
 	private String companyWebSite;
-	
+
 	private String personName;
 	private long personMobile;
 	private long personFax;
 	private String personEmail;
 	private String personDesignation;
-	
+
 	private String addressWork;
 	private String typeOfOwnership;
-	
+
 	private String companyNsic;
 	private String companyMsme;
 	private String natureOfBusiness;
-	
+
 	private String companyBank;
 	private String companyBankAccount;
-	
+
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}

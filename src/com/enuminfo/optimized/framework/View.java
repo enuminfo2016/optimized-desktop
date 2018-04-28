@@ -8,11 +8,14 @@ import java.awt.Component;
 
 /**
  * View interface.
+ * 
  * @author Kumar
  */
 public interface View {
 
 	String getTitle();
+
 	String getIconPath();
+
 	Component asComponent();
 }

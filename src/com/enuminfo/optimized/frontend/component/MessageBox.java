@@ -27,6 +27,7 @@ import com.enuminfo.optimized.frontend.I18n;
  * <p>
  * MessageBox uses the JXErrorPane component for error dialogs from SwingX.
  * <p>
+ * 
  * <pre>
  * <code>
  *      if (MessageBox.showInfoYesNoCancel("Test Information") == JOptionPane.YES_OPTION) {
@@ -36,6 +37,7 @@ import com.enuminfo.optimized.frontend.I18n;
  * </pre>
  * <p>
  * Messages can be used with html tags.
+ * 
  * @see JOptionPane
  * @see JXErrorPane
  * @author Kumar
@@ -47,11 +49,11 @@ public class MessageBox {
 	public static final int NO_OPTION = JOptionPane.NO_OPTION;
 	public static final int CANCEL_OPTION = JOptionPane.CANCEL_OPTION;
 	public static final int CLOSED_OPTION = JOptionPane.CLOSED_OPTION;
-	
+
 	public MessageBox() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static void showInfo(String message) {
 		JOptionPane.showMessageDialog(new JFrame(), "<html><body>" + message + "</body></html>",
 				I18n.COMPONENT.getString("MessageBox.Title.Info"), JOptionPane.INFORMATION_MESSAGE);

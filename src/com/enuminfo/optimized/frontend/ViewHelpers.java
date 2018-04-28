@@ -28,6 +28,7 @@ import com.enuminfo.optimized.frontend.component.MessageBox;
 
 /**
  * View Helpers
+ * 
  * @author Kumar
  */
 public class ViewHelpers {
@@ -38,7 +39,7 @@ public class ViewHelpers {
 	public static final String ICONS16 = "/com/enuminfo/optimized/resources/icons16/";
 	public static final String ICONS22 = "/com/enuminfo/optimized/resources/icons22/";
 	public static final String IMAGES = "/com/enuminfo/optimized/resources/images/";
-	
+
 	public ViewHelpers() {
 		// TODO Auto-generated constructor stub
 	}

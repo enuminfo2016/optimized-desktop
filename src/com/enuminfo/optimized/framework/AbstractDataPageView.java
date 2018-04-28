@@ -41,7 +41,9 @@ import net.miginfocom.swing.MigLayout;
 
 /**
  * Abstract Page View
- * @param <T> entity
+ * 
+ * @param <T>
+ *            entity
  * @author Kumar
  */
 public abstract class AbstractDataPageView<T extends Base> implements DataPageView<T> {
@@ -80,7 +82,7 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 	private final int pageSize = 20;
 
 	protected String searchFilter = "";
-	
+
 	public AbstractDataPageView() {
 		// TODO Auto-generated constructor stub
 	}
@@ -117,7 +119,7 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 		JLabel lblTitle = new JLabel(getTitle());
 		lblTitle.setIcon(new ImageIcon(getClass().getResource(getIconPath())));
 		lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD, 14));
-		
+
 		// JSearchField
 		acSearch = new AbstractAction("search") {
 			@Override
@@ -126,7 +128,7 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 			}
 		};
 		searchField = new JSearchField(acSearch);
-		
+
 		// toolbar
 		JToolBar tbHeader = new JToolBar();
 		tbHeader.setFloatable(false);
@@ -176,7 +178,7 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 				}
 			}
 		});
-		
+
 		xtable.setColumnControlVisible(true);
 		xtable.setHighlighters(HighlighterFactory.createSimpleStriping(HighlighterFactory.BEIGE));
 		xtable.getTableHeader().setPreferredSize(new Dimension(xtable.getTableHeader().getPreferredSize().width, 19));
@@ -304,7 +306,8 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
-		lblCurrentPage.setText(I18n.COMMON.getString("AbstractPageView.Pager.CurrentPage") + " " + String.valueOf(this.currentPage));
+		lblCurrentPage.setText(
+				I18n.COMMON.getString("AbstractPageView.Pager.CurrentPage") + " " + String.valueOf(this.currentPage));
 	}
 
 	public int getCurrentPage() {

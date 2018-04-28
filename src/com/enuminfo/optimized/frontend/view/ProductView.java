@@ -10,10 +10,10 @@ import com.enuminfo.optimized.framework.EntityTableColumn;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.model.Product;
-import com.enuminfo.optimized.frontend.preview.ProductPreview;
 
 /**
  * Product Page View
+ * 
  * @author Kumar
  */
 public class ProductView extends AbstractDataPageView<Product> {
@@ -30,12 +30,15 @@ public class ProductView extends AbstractDataPageView<Product> {
 
 	@Override
 	public void addTableColumns() {
-		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Product.Page.Name"), "name", String.class, 300));
-		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Product.Page.Code"), "code", String.class, 300));
+		getTableModel().addColumn(
+				new EntityTableColumn(I18n.OPTIMIZED.getString("Product.Page.Name"), "name", String.class, 300));
+		getTableModel().addColumn(
+				new EntityTableColumn(I18n.OPTIMIZED.getString("Product.Page.Code"), "code", String.class, 300));
 	}
-	
+
 	@Override
-    public AbstractPreviewPanel<Product> getPreviewPanel() {
-		return new ProductPreview();
+	public AbstractPreviewPanel<Product> getPreviewPanel() {
+		// return new ProductPreview();
+		return null;
 	}
 }

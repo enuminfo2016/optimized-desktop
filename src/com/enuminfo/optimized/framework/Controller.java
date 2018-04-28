@@ -6,6 +6,7 @@ package com.enuminfo.optimized.framework;
 
 /**
  * Controller interface.
+ * 
  * @author Kumar
  */
 public interface Controller {

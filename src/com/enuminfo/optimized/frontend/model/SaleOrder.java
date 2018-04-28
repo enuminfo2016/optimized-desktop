@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Sale Order Form
+ * 
  * @author Kumar
  */
 public class SaleOrder extends Base {
@@ -16,13 +17,23 @@ public class SaleOrder extends Base {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String orderDate;
 	private String orderNumber;
-	private String customer;
+	private String cId;
+	private String cName;
 	private List<OrderLine> orderLines;
 	private double orderAmount;
-	
+
 	public SaleOrder() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
 	}
 
 	public String getOrderNumber() {
@@ -33,12 +44,20 @@ public class SaleOrder extends Base {
 		this.orderNumber = orderNumber;
 	}
 
-	public String getCustomer() {
-		return customer;
+	public String getCId() {
+		return cId;
 	}
 
-	public void setCustomer(String customer) {
-		this.customer = customer;
+	public void setCId(String cId) {
+		this.cId = cId;
+	}
+
+	public String getCName() {
+		return cName;
+	}
+
+	public void setCName(String cName) {
+		this.cName = cName;
 	}
 
 	public List<OrderLine> getOrderLines() {

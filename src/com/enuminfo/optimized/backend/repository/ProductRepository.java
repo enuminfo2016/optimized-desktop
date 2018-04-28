@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.ProductEntity;
 
 /**
  * Product Repository
+ * 
  * @author Kumar
  */
 public class ProductRepository extends AbstractRepository<ProductEntity> {

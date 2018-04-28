@@ -20,14 +20,13 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Order Line Entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.ORDER_LINE)
-@NamedQueries ({ 
-	@NamedQuery (name = OrderLineEntity.FIND_ALL, query = "SELECT entity FROM OrderLineEntity entity")
-})
-@AttributeOverride (name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.ORDER_LINE)
+@NamedQueries({ @NamedQuery(name = OrderLineEntity.FIND_ALL, query = "SELECT entity FROM OrderLineEntity entity") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class OrderLineEntity extends BaseEntity {
 
 	/**
@@ -35,21 +34,21 @@ public class OrderLineEntity extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_ALL = "OrderLine.FindAll";
-	
-	@ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn (name = ColumnType.PRODUCT)
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = ColumnType.PRODUCT)
 	private ProductEntity product;
-	
-	@Column (name = ColumnType.QUANTITY)
+
+	@Column(name = ColumnType.QUANTITY)
 	private Double quantity;
-	
-	@Column (name = ColumnType.UNIT_PRICE)
+
+	@Column(name = ColumnType.UNIT_PRICE)
 	private Double unitPrice;
-	
-	@ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn (name = ColumnType.SALE_ORDER)
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = ColumnType.SALE_ORDER)
 	private SaleOrderEntity saleOrder;
-	
+
 	public OrderLineEntity() {
 		// TODO Auto-generated constructor stub
 	}

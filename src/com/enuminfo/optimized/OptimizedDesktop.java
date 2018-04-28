@@ -17,6 +17,7 @@ import com.enuminfo.optimized.frontend.contoller.AppController;
 
 /**
  * Optimized desktop application.
+ * 
  * @author Kumar
  */
 public class OptimizedDesktop extends AppController {
@@ -24,20 +25,20 @@ public class OptimizedDesktop extends AppController {
 	private final static Logger LOGGER = Logger.getLogger(OptimizedDesktop.class.getName());
 
 	public static Splash splash;
-	
+
 	public OptimizedDesktop() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		// set locale for i18n
 		Locale.setDefault(new Locale("en", "US"));
-		
+
 		splash = new Splash(I18n.OPTIMIZED.getString("App.Title"), ViewHelpers.ICONS16 + "app.png",
 				ViewHelpers.IMAGES + "splash.png");
 		splash.setVisible(true);
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException ex) {

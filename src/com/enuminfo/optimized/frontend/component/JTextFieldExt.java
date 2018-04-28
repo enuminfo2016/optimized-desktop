@@ -16,12 +16,14 @@ import javax.swing.text.PlainDocument;
  * JTextField with max lenght property. <br/>
  * </p>
  * <p>
+ * 
  * <pre>
  * <code>
  *      JTextFieldExt tfxName = new JTextFieldExt(50);
  * </code>
  * </pre>
  * </p>
+ * 
  * @author Kumar
  */
 public class JTextFieldExt extends JTextField {

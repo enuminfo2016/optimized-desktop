@@ -10,12 +10,13 @@ import javax.persistence.Persistence;
 
 /**
  * JPA Util
+ * 
  * @author Kumar
  */
 public class JpaUtil {
 
 	private static EntityManagerFactory entityManagerFactory;
-	
+
 	public JpaUtil() {
 		// TODO Auto-generated constructor stub
 	}

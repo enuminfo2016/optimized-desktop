@@ -20,15 +20,14 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Product Entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.PRODUCT)
-@NamedQueries ({ 
-	@NamedQuery (name = ProductEntity.FIND_ALL, query = "SELECT entity FROM ProductEntity entity"),
-	@NamedQuery (name = ProductEntity.FIND_BY_CODE, query = "SELECT entity FROM ProductEntity entity WHERE entity.code LIKE :code") 
-})
-@AttributeOverride (name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.PRODUCT)
+@NamedQueries({ @NamedQuery(name = ProductEntity.FIND_ALL, query = "SELECT entity FROM ProductEntity entity"),
+		@NamedQuery(name = ProductEntity.FIND_BY_CODE, query = "SELECT entity FROM ProductEntity entity WHERE entity.code LIKE :code") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class ProductEntity extends BaseEntity {
 
 	/**
@@ -37,17 +36,17 @@ public class ProductEntity extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_ALL = "Product.FindAll";
 	public static final String FIND_BY_CODE = "Product.FindByCode";
-	
-	@Column (name = ColumnType.NAME)
+
+	@Column(name = ColumnType.NAME)
 	private String name;
-	
-	@Column (name = ColumnType.SKU_CODE)
+
+	@Column(name = ColumnType.SKU_CODE)
 	private String code;
-	
-	@ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn (name = ColumnType.CATEGORY)
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = ColumnType.CATEGORY)
 	private CategoryEntity category;
-	
+
 	public ProductEntity() {
 		// TODO Auto-generated constructor stub
 	}

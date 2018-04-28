@@ -20,15 +20,14 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Customer Entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.CUSTOMER)
-@NamedQueries ({ 
-	@NamedQuery (name = CustomerEntity.FIND_ALL, query = "SELECT entity FROM CustomerEntity entity"),
-	@NamedQuery (name = CustomerEntity.FIND_BY_NAME, query = "SELECT entity FROM CustomerEntity entity WHERE entity.companyName LIKE :companyName") 
-})
-@AttributeOverride (name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.CUSTOMER)
+@NamedQueries({ @NamedQuery(name = CustomerEntity.FIND_ALL, query = "SELECT entity FROM CustomerEntity entity"),
+		@NamedQuery(name = CustomerEntity.FIND_BY_NAME, query = "SELECT entity FROM CustomerEntity entity WHERE entity.companyName LIKE :companyName") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class CustomerEntity extends BaseEntity {
 
 	/**
@@ -37,62 +36,62 @@ public class CustomerEntity extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_ALL = "Customer.FindAll";
 	public static final String FIND_BY_NAME = "Customer.FindByName";
-	
-	@Column (name = ColumnType.COMPANY_NAME)
+
+	@Column(name = ColumnType.COMPANY_NAME)
 	private String companyName;
-	
-	@Column (name = ColumnType.COMPANY_ADDRESS)
+
+	@Column(name = ColumnType.COMPANY_ADDRESS)
 	private String companyAddress;
-	
-	@Column (name = ColumnType.COMPANY_PHONE)
+
+	@Column(name = ColumnType.COMPANY_PHONE)
 	private Long companyPhone;
-	
-	@Column (name = ColumnType.COMPANY_FAX)
+
+	@Column(name = ColumnType.COMPANY_FAX)
 	private Long companyFax;
-	
-	@Column (name = ColumnType.COMPANY_EMAIL)
+
+	@Column(name = ColumnType.COMPANY_EMAIL)
 	private String companyEmail;
-	
-	@Column (name = ColumnType.COMPANY_WEB_SITE)
+
+	@Column(name = ColumnType.COMPANY_WEB_SITE)
 	private String companyWebSite;
-	
-	@Column (name = ColumnType.PERSON_NAME)
+
+	@Column(name = ColumnType.PERSON_NAME)
 	private String personName;
-	
-	@Column (name = ColumnType.PERSON_MOBILE)
+
+	@Column(name = ColumnType.PERSON_MOBILE)
 	private Long personMobile;
-	
-	@Column (name = ColumnType.PERSON_FAX)
+
+	@Column(name = ColumnType.PERSON_FAX)
 	private Long personFax;
-	
-	@Column (name = ColumnType.PERSON_EMAIL)
+
+	@Column(name = ColumnType.PERSON_EMAIL)
 	private String personEmail;
-	
-	@Column (name = ColumnType.PERSON_DESIGNATION)
+
+	@Column(name = ColumnType.PERSON_DESIGNATION)
 	private String personDesignation;
-	
-	@Column (name = ColumnType.ADDRESS_WORKS)
+
+	@Column(name = ColumnType.ADDRESS_WORKS)
 	private String addressWork;
-	
-	@Column (name = ColumnType.TYPE_OWNERSHIP)
+
+	@Column(name = ColumnType.TYPE_OWNERSHIP)
 	private String typeOfOwnership;
-	
-	@Column (name = ColumnType.COMPANY_NSIC)
+
+	@Column(name = ColumnType.COMPANY_NSIC)
 	private String companyNsic;
-	
-	@Column (name = ColumnType.COMPANY_MSME)
+
+	@Column(name = ColumnType.COMPANY_MSME)
 	private String companyMsme;
-	
-	@Column (name = ColumnType.NATURE_BUSINESS)
+
+	@Column(name = ColumnType.NATURE_BUSINESS)
 	private String natureOfBusiness;
-	
-	@ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn (name = ColumnType.COMPANY_BANK)
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = ColumnType.COMPANY_BANK)
 	private BankEntity companyBank;
-	
-	@Column (name = ColumnType.COMPANY_BANK_ACCOUNT)
+
+	@Column(name = ColumnType.COMPANY_BANK_ACCOUNT)
 	private String companyBankAccount;
-	
+
 	public CustomerEntity() {
 		// TODO Auto-generated constructor stub
 	}

@@ -16,6 +16,7 @@ import com.enuminfo.optimized.backend.ColumnType;
 
 /**
  * Base entity class for all entity models.
+ * 
  * @author Kumar
  */
 @MappedSuperclass
@@ -27,10 +28,10 @@ public abstract class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	@Column (name = ColumnType.ID)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = ColumnType.ID)
 	private Integer id;
-	
+
 	public BaseEntity() {
 		// TODO Auto-generated constructor stub
 	}

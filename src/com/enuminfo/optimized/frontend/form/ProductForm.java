@@ -23,6 +23,7 @@ import net.miginfocom.swing.MigLayout;
 
 /**
  * Product Form
+ * 
  * @author Kumar
  */
 public class ProductForm extends AbstractFormDialogView<Product> {
@@ -33,11 +34,11 @@ public class ProductForm extends AbstractFormDialogView<Product> {
 	private static final long serialVersionUID = 1L;
 	private Product product;
 	private boolean isNewModel = false;
-	
+
 	private JTextFieldExt textFieldExtName;
 	private JTextFieldExt textFieldExtCode;
 	private JComboBox<ComboBoxItem> comboBoxCategory;
-	
+
 	public ProductForm(DataPageController<Product> controller, Product product) {
 		super(AppController.get().getView(), controller);
 		this.product = product;
@@ -71,15 +72,15 @@ public class ProductForm extends AbstractFormDialogView<Product> {
 		textFieldExtCode = new JTextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Product.Form.Category")), "gap para");
-        panel.add(comboBoxCategory, "span");
+		panel.add(comboBoxCategory, "span");
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Product.Form.Name")), "gap para");
-        panel.add(textFieldExtName, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Product.Form.Code")), "gap para");
-        panel.add(textFieldExtCode, "span");
+		panel.add(textFieldExtName, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Product.Form.Code")), "gap para");
+		panel.add(textFieldExtCode, "span");
 		addPageToForm("", panel);
-        popFields();
-        pack();
-        setSize(430, 330);
+		popFields();
+		pack();
+		setSize(430, 330);
 	}
 
 	@Override
@@ -107,26 +108,24 @@ public class ProductForm extends AbstractFormDialogView<Product> {
 
 	@Override
 	public void onHelp() {
-		
+
 	}
-	
+
 	@Override
-    public boolean validateForm() {
+	public boolean validateForm() {
 		if (comboBoxCategory.getSelectedItem() == null) {
-            MessageBox.showWarning(I18n.OPTIMIZED.getString("Product.Form.CategoryError"));
-            comboBoxCategory.requestFocus();
-            return false;
-        }
-		else if (textFieldExtName.getText().equals("")) {
-            MessageBox.showWarning(I18n.OPTIMIZED.getString("Product.Form.NameError"));
-            textFieldExtName.requestFocus();
-            return false;
-        }
-        else if (textFieldExtCode.getText().equals("")) {
-            MessageBox.showWarning(I18n.OPTIMIZED.getString("Product.Form.CodeError"));
-            textFieldExtCode.requestFocus();
-            return false;
-        }
-        return true;
-    }
+			MessageBox.showWarning(I18n.OPTIMIZED.getString("Product.Form.CategoryError"));
+			comboBoxCategory.requestFocus();
+			return false;
+		} else if (textFieldExtName.getText().equals("")) {
+			MessageBox.showWarning(I18n.OPTIMIZED.getString("Product.Form.NameError"));
+			textFieldExtName.requestFocus();
+			return false;
+		} else if (textFieldExtCode.getText().equals("")) {
+			MessageBox.showWarning(I18n.OPTIMIZED.getString("Product.Form.CodeError"));
+			textFieldExtCode.requestFocus();
+			return false;
+		}
+		return true;
+	}
 }

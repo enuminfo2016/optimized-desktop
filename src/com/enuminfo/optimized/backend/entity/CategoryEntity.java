@@ -16,15 +16,14 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Category entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.CATEGORY)
-@NamedQueries ({ 
-	@NamedQuery (name = CategoryEntity.FIND_ALL, query = "SELECT entity FROM CategoryEntity entity"),
-	@NamedQuery (name = CategoryEntity.FIND_BY_NAME, query = "SELECT entity FROM CategoryEntity entity WHERE entity.name LIKE :name") 
-})
-@AttributeOverride (name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.CATEGORY)
+@NamedQueries({ @NamedQuery(name = CategoryEntity.FIND_ALL, query = "SELECT entity FROM CategoryEntity entity"),
+		@NamedQuery(name = CategoryEntity.FIND_BY_NAME, query = "SELECT entity FROM CategoryEntity entity WHERE entity.name LIKE :name") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class CategoryEntity extends BaseEntity {
 
 	/**
@@ -34,9 +33,9 @@ public class CategoryEntity extends BaseEntity {
 	public static final String FIND_ALL = "Category.FindAll";
 	public static final String FIND_BY_NAME = "Category.FindByName";
 
-	@Column (name = ColumnType.NAME)
+	@Column(name = ColumnType.NAME)
 	private String name;
-	
+
 	public CategoryEntity() {
 		// TODO Auto-generated constructor stub
 	}

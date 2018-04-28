@@ -4,6 +4,8 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
+import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
+
 import java.util.List;
 
 import com.enuminfo.optimized.framework.AbstractDataPageController;
@@ -16,6 +18,7 @@ import com.enuminfo.optimized.service.CustomerService;
 
 /**
  * Customer Controller
+ * 
  * @author Kumar
  */
 public class CustomerController extends AbstractDataPageController<Customer> {
@@ -35,7 +38,8 @@ public class CustomerController extends AbstractDataPageController<Customer> {
 		if (filter.equals(""))
 			return getService().getListWithNamedQuery(start, end);
 		else
-			return getService().getListWithNamedQueryAndParameters(filter, start, end);
+			return getService().getListWithNamedQueryAndParameters(with("companyName", "%" + filter + "%").parameters(),
+					start, end);
 	}
 
 	@Override
@@ -43,7 +47,8 @@ public class CustomerController extends AbstractDataPageController<Customer> {
 		if (filter.equals(""))
 			return getService().getListWithNamedQuery().size();
 		else
-			return getService().getListWithNamedQueryAndParameters(filter).size();
+			return getService().getListWithNamedQueryAndParameters(with("companyName", "%" + filter + "%").parameters())
+					.size();
 	}
 
 	@Override

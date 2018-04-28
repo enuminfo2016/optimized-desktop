@@ -6,6 +6,7 @@ package com.enuminfo.optimized.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.enuminfo.optimized.backend.entity.OrderLineEntity;
 import com.enuminfo.optimized.backend.repository.OrderLineRepository;
@@ -14,6 +15,7 @@ import com.enuminfo.optimized.frontend.model.OrderLine;
 
 /**
  * Order Line Service
+ * 
  * @author Kumar
  */
 public class OrderLineService extends AbstractService<OrderLine> {
@@ -39,12 +41,12 @@ public class OrderLineService extends AbstractService<OrderLine> {
 
 	@Override
 	public void add(OrderLine model) {
-		
+
 	}
 
 	@Override
 	public void edit(OrderLine model) {
-		
+
 	}
 
 	@Override
@@ -59,12 +61,12 @@ public class OrderLineService extends AbstractService<OrderLine> {
 	}
 
 	@Override
-	public List<OrderLine> getListWithNamedQueryAndParameters(String filter) {
+	public List<OrderLine> getListWithNamedQueryAndParameters(Map<String, Object> parameters) {
 		return null;
 	}
 
 	@Override
-	public List<OrderLine> getListWithNamedQueryAndParameters(String filter, int start, int end) {
+	public List<OrderLine> getListWithNamedQueryAndParameters(Map<String, Object> parameters, int start, int end) {
 		return null;
 	}
 

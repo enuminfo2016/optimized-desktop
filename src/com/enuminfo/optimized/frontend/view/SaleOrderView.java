@@ -13,6 +13,7 @@ import com.enuminfo.optimized.frontend.model.SaleOrder;
 
 /**
  * Sale Order Page View
+ * 
  * @author Kumar
  */
 public class SaleOrderView extends AbstractDataPageView<SaleOrder> {
@@ -29,13 +30,16 @@ public class SaleOrderView extends AbstractDataPageView<SaleOrder> {
 
 	@Override
 	public void addTableColumns() {
-		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("SaleOrder.Page.OrderNumber"), "orderNumber", String.class, 300));
-		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("SaleOrder.Page.Customer"), "customer", String.class, 300));
-		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("SaleOrder.Page.OrderAmount"), "orderAmount", Double.class, 300));
+		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("SaleOrder.Page.OrderNumber"),
+				"orderNumber", String.class, 300));
+		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("SaleOrder.Page.Customer"), "customer",
+				String.class, 300));
+		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("SaleOrder.Page.OrderAmount"),
+				"orderAmount", Double.class, 300));
 	}
-	
+
 	@Override
-    public AbstractPreviewPanel<SaleOrder> getPreviewPanel() {
+	public AbstractPreviewPanel<SaleOrder> getPreviewPanel() {
 		return null;
 	}
 }

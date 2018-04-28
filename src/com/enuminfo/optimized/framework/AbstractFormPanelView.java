@@ -27,7 +27,9 @@ import com.enuminfo.optimized.frontend.model.Base;
 
 /**
  * Abstract Form View for data editing in JDialog.
- * @param <T> entity
+ * 
+ * @param <T>
+ *            entity
  * @author Kumar
  */
 public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
@@ -59,14 +61,18 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 		add(buildToolBar(), BorderLayout.NORTH);
 		add(buildStatusBar(), BorderLayout.SOUTH);
 		if (isMultiPageForm()) {
-			
+
 		}
 	}
 
 	public abstract String getFormTitle();
+
 	public abstract String getFormIconPath();
+
 	public abstract void buildUI();
+
 	public abstract void popFields();
+
 	public abstract void pushFields();
 
 	public boolean onSave() {
@@ -101,11 +107,11 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 	}
 
 	public void onPrintPreview() {
-		
+
 	}
 
 	public void onPrint() {
-		
+
 	}
 
 	public abstract void onHelp();
@@ -122,7 +128,7 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 			toolBar.add(ViewHelpers.createToolButton(acPrintPreview, true, true));
 			toolBar.add(ViewHelpers.createToolButton(acPrint, true, true));
 		}
-		//toolBar.add(ViewHelpers.createToolButton(acHelp, true, true));
+		// toolBar.add(ViewHelpers.createToolButton(acHelp, true, true));
 		toolBar.add(ViewHelpers.createToolButton(acClose, true, true));
 		return toolBar;
 	}

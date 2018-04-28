@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.SaleOrderEntity;
 
 /**
  * Sale Order Repository
+ * 
  * @author Kumar
  */
 public class SaleOrderRepository extends AbstractRepository<SaleOrderEntity> {

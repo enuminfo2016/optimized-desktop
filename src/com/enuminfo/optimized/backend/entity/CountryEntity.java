@@ -16,15 +16,14 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Country entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.COUNTRY)
-@NamedQueries ({ 
-	@NamedQuery (name = CountryEntity.FIND_ALL, query = "SELECT entity FROM CountryEntity entity"),
-	@NamedQuery (name = CountryEntity.FIND_BY_NAME, query = "SELECT entity FROM CountryEntity entity WHERE entity.name LIKE :name") 
-})
-@AttributeOverride (name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.COUNTRY)
+@NamedQueries({ @NamedQuery(name = CountryEntity.FIND_ALL, query = "SELECT entity FROM CountryEntity entity"),
+		@NamedQuery(name = CountryEntity.FIND_BY_NAME, query = "SELECT entity FROM CountryEntity entity WHERE entity.name LIKE :name") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class CountryEntity extends BaseEntity {
 
 	/**
@@ -34,10 +33,10 @@ public class CountryEntity extends BaseEntity {
 	public static final String FIND_ALL = "Country.FindAll";
 	public static final String FIND_BY_NAME = "Country.FindByName";
 
-	@Column (name = ColumnType.NAME)
+	@Column(name = ColumnType.NAME)
 	private String name;
 
-	@Column (name = ColumnType.ISD)
+	@Column(name = ColumnType.ISD)
 	private String isd;
 
 	public CountryEntity() {

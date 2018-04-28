@@ -65,6 +65,7 @@ import org.jvnet.substance.skin.SubstanceTwilightLookAndFeel;
 
 /**
  * Look And Feel Dialog
+ * 
  * @author Kumar
  */
 public class LookAndFeelDialog extends JDialog {
@@ -166,21 +167,21 @@ public class LookAndFeelDialog extends JDialog {
 		listModel.addElement(new LafItem(lafIcon, new SubstanceBusinessBlueSteelLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceCremeLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceCremeCoffeeLookAndFeel()));
-		
+
 		listModel.addElement(new LafItem(lafIcon, new SubstanceChallengerDeepLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceDustLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceDustCoffeeLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceEmeraldDuskLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceMistAquaLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceModerateLookAndFeel()));
-		
+
 		listModel.addElement(new LafItem(lafIcon, new SubstanceMagmaLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceMistSilverLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceNebulaLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceNebulaBrickWallLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceOfficeBlue2007LookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceOfficeSilver2007LookAndFeel()));
-		
+
 		listModel.addElement(new LafItem(lafIcon, new SubstanceRavenGraphiteGlassLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceRavenGraphiteLookAndFeel()));
 		listModel.addElement(new LafItem(lafIcon, new SubstanceRavenLookAndFeel()));
@@ -221,7 +222,7 @@ public class LookAndFeelDialog extends JDialog {
 		private final ImageIcon icon;
 		private final String title;
 		private final SubstanceLookAndFeel lafObject;
-		
+
 		public LafItem(ImageIcon icon, SubstanceLookAndFeel lafObject) {
 			this.icon = icon;
 			this.lafObject = lafObject;

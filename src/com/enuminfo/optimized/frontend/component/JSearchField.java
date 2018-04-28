@@ -19,6 +19,7 @@ import com.enuminfo.optimized.frontend.ViewHelpers;
 
 /**
  * JSearchField component.
+ * 
  * @author Kumar
  */
 public class JSearchField extends JPanel implements KeyListener {
@@ -77,6 +78,6 @@ public class JSearchField extends JPanel implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
+
 	}
 }

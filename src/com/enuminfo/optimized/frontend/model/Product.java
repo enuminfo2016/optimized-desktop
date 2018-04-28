@@ -6,6 +6,7 @@ package com.enuminfo.optimized.frontend.model;
 
 /**
  * Product DTO
+ * 
  * @author Kumar
  */
 public class Product extends Base {
@@ -16,10 +17,10 @@ public class Product extends Base {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String code;
-	
+
 	private int cId;
 	private String category;
-	
+
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}

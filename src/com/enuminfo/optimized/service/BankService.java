@@ -6,6 +6,7 @@ package com.enuminfo.optimized.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.enuminfo.optimized.backend.entity.BankEntity;
 import com.enuminfo.optimized.backend.repository.BankRepository;
@@ -14,6 +15,7 @@ import com.enuminfo.optimized.frontend.model.Bank;
 
 /**
  * Bank Service
+ * 
  * @author Kumar
  */
 public class BankService extends AbstractService<Bank> {
@@ -59,13 +61,13 @@ public class BankService extends AbstractService<Bank> {
 	}
 
 	@Override
-	public List<Bank> getListWithNamedQueryAndParameters(String filter) {
+	public List<Bank> getListWithNamedQueryAndParameters(Map<String, Object> parameters) {
 		List<Bank> banks = new ArrayList<>();
 		return banks;
 	}
 
 	@Override
-	public List<Bank> getListWithNamedQueryAndParameters(String filter, int start, int end) {
+	public List<Bank> getListWithNamedQueryAndParameters(Map<String, Object> parameters, int start, int end) {
 		List<Bank> banks = new ArrayList<>();
 		return banks;
 	}

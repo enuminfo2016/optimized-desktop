@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * ComboBox Item
+ * 
  * @author Kumar
  */
 public class ComboBoxItem implements Serializable {
@@ -18,11 +19,11 @@ public class ComboBoxItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String key;
 	private String value;
-	
+
 	public ComboBoxItem() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public ComboBoxItem(String key, String value) {
 		this.key = key;
 		this.value = value;
@@ -43,7 +44,7 @@ public class ComboBoxItem implements Serializable {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
+
 	@Override
 	public boolean equals(Object object) {
 		if (object == null)

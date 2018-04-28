@@ -10,17 +10,17 @@ package com.enuminfo.optimized.backend;
  */
 public interface TableType {
 
-	String COUNTRY = "T_COUNTRY_DETAIL";
-	String LOCATION = "T_LOCATION_DETAIL";
-	
-	String CATEGORY = "T_CATEGORY_DETAIL";
-	String PRODUCT = "T_PRODUCT_DETAIL";
-	
-	String BANK = "T_BANK_DETAIL";
-	
-	String VENDOR = "T_VENDOR_DETAIL";
-	String CUSTOMER = "T_CUSTOMER_DETAIL";
-	
-	String ORDER_LINE = "T_ORDER_LINE_DETAIL";
-	String SALE_ORDER = "T_SALE_ORDER_DETAIL";
+	String COUNTRY = "T_COUNTRY";
+	String LOCATION = "T_LOCATION";
+
+	String CATEGORY = "T_CATEGORY";
+	String PRODUCT = "T_PRODUCT";
+
+	String BANK = "T_BANK";
+
+	String VENDOR = "T_VENDOR";
+	String CUSTOMER = "T_CUSTOMER";
+
+	String ORDER_LINE = "T_ORDER_LINE";
+	String SALE_ORDER = "T_SALE_ORDER";
 }

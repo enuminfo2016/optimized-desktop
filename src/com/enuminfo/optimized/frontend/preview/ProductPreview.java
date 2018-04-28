@@ -16,6 +16,7 @@ import net.miginfocom.swing.MigLayout;
 
 /**
  * Product Preview
+ * 
  * @author Kumar
  */
 public class ProductPreview extends AbstractPreviewPanel<Product> {
@@ -25,15 +26,15 @@ public class ProductPreview extends AbstractPreviewPanel<Product> {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Product product;
-	
+
 	private IconLabel lblName;
 	private IconLabel lblCode;
 	private IconLabel lblCategory;
-	
+
 	public ProductPreview() {
 		super();
 	}
-	
+
 	@Override
 	public void buildUI() {
 		lblName = new IconLabel(new ImageIcon(getClass().getResource(ViewHelpers.ICONS16 + "homepage.png")));
@@ -41,8 +42,8 @@ public class ProductPreview extends AbstractPreviewPanel<Product> {
 		lblCategory = new IconLabel(new ImageIcon(getClass().getResource(ViewHelpers.ICONS16 + "category.png")));
 		JPanel panel = new JPanel(new MigLayout("insets 10 20 10 20"));
 		panel.add(lblName, "wrap");
-        panel.add(lblCode, "wrap");
-        panel.add(lblCategory, "wrap");
+		panel.add(lblCode, "wrap");
+		panel.add(lblCategory, "wrap");
 		addCenterComponent(panel);
 	}
 

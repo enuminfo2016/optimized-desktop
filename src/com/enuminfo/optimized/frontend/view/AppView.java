@@ -44,6 +44,7 @@ import com.enuminfo.optimized.frontend.contoller.SaleOrderController;
 
 /**
  * Application View
+ * 
  * @author Kumar
  */
 public class AppView extends JRibbonFrame {
@@ -52,10 +53,10 @@ public class AppView extends JRibbonFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private JXStatusBar xstatusBar;
 	private JPanel centerPanel;
-	
+
 	// show exit message box?
 	private final boolean showExitDialog = false;
 
@@ -99,7 +100,8 @@ public class AppView extends JRibbonFrame {
 
 	private void exitForm(WindowEvent evt) {
 		if (showExitDialog) {
-			if (MessageBox.showAskYesNo(I18n.COMMON.getString("MessageBox.Confirm.ProgramExit")) == MessageBox.NO_OPTION)
+			if (MessageBox
+					.showAskYesNo(I18n.COMMON.getString("MessageBox.Confirm.ProgramExit")) == MessageBox.NO_OPTION)
 				return;
 		}
 		AppController.get().exit();
@@ -107,10 +109,11 @@ public class AppView extends JRibbonFrame {
 
 	private void configureRibbonMenu() {
 		// file task
-		RibbonTask fileTask = new RibbonTask(I18n.COMMON.getString("AppView.File"), getActionsBand(), getSalesBand());
+		RibbonTask fileTask = new RibbonTask(I18n.COMMON.getString("AppView.File"), getActionsBand());
 		fileTask.setKeyTip("F");
 
-		RibbonTask helpTask = new RibbonTask(I18n.COMMON.getString("AppView.Window"), getViewBand(), getExtrasBand(), getHelpBand());
+		RibbonTask helpTask = new RibbonTask(I18n.COMMON.getString("AppView.Window"), getViewBand(), getExtrasBand(),
+				getHelpBand());
 		helpTask.setKeyTip("H");
 
 		this.getRibbon().addTask(fileTask);
@@ -129,39 +132,8 @@ public class AppView extends JRibbonFrame {
 				});
 	}
 
-	private JRibbonBand getSalesBand() {
-		JRibbonBand salesBand = new JRibbonBand(I18n.COMMON.getString("AppView.SalActionsBand"),
-				new EmptyResizableIcon(22));
-		salesBand.setResizePolicies(CoreRibbonResizePolicies.getCorePoliciesRestrictive(salesBand));
-		
-		JCommandButton cbtnOrders = new JCommandButton(I18n.OPTIMIZED.getString("Action.Orders"), ViewHelpers
-				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
-		cbtnOrders.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				SaleOrderController controller = new SaleOrderController();
-				addPageToCenter(controller.getDataPageView());
-			}
-		});
-		cbtnOrders.setActionKeyTip("O");
-		salesBand.addCommandButton(cbtnOrders, RibbonElementPriority.TOP);
-		
-		JCommandButton cbtnSales = new JCommandButton(I18n.OPTIMIZED.getString("Action.Sales"), ViewHelpers
-				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
-		cbtnSales.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		cbtnSales.setActionKeyTip("B");
-		salesBand.addCommandButton(cbtnSales, RibbonElementPriority.TOP);
-		
-		return salesBand;
-	}
-
 	protected void configureTaskBar() {
-		
+
 	}
 
 	protected void configureApplicationMenu() {
@@ -171,7 +143,7 @@ public class AppView extends JRibbonFrame {
 	}
 
 	private JRibbonBand getActionsBand() {
-		JRibbonBand actionsBand = new JRibbonBand(I18n.COMMON.getString("AppView.RefActionsBand"),
+		JRibbonBand actionsBand = new JRibbonBand(I18n.COMMON.getString("AppView.ActionsBand"),
 				new EmptyResizableIcon(22));
 		actionsBand.setResizePolicies(CoreRibbonResizePolicies.getCorePoliciesRestrictive(actionsBand));
 
@@ -207,6 +179,19 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnProducts.setActionKeyTip("A");
 		actionsBand.addCommandButton(cbtnProducts, RibbonElementPriority.TOP);
+
+		JCommandButton cbtnOrders = new JCommandButton(I18n.OPTIMIZED.getString("Action.Orders"), ViewHelpers
+				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
+		cbtnOrders.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SaleOrderController controller = new SaleOrderController();
+				addPageToCenter(controller.getDataPageView());
+			}
+		});
+		cbtnOrders.setActionKeyTip("O");
+		actionsBand.addCommandButton(cbtnOrders, RibbonElementPriority.TOP);
+
 		return actionsBand;
 	}
 
@@ -299,53 +284,53 @@ public class AppView extends JRibbonFrame {
 		dateFormat.applyPattern("EEEE', 'dd. MMMM yyyy");
 		JLabel lblDate = new JLabel(" " + dateFormat.format(new Date()).toString());
 		xstatusBar.add(lblDate, new JXStatusBar.Constraint(400));
-		
+
 		JLabel lblVersion = new JLabel(" " + I18n.OPTIMIZED.getString("App.Version"));
 		xstatusBar.add(lblVersion, new JXStatusBar.Constraint(300));
 
 		return xstatusBar;
 	}
-	
+
 	public void onOpenDashboard() {
-        DashboardController controller = new DashboardController();
-        addPageToCenter(controller.getPageView());
-    }
-	
+		DashboardController controller = new DashboardController();
+		addPageToCenter(controller.getPageView());
+	}
+
 	public void onOpenCustomers() {
 		CustomerController controller = new CustomerController();
 		addPageToCenter(controller.getDataPageView());
 	}
 
-    public void onOpenProducts() {
-    	ProductController controller = new ProductController();
-    	addPageToCenter(controller.getDataPageView());
-    }
+	public void onOpenProducts() {
+		ProductController controller = new ProductController();
+		addPageToCenter(controller.getDataPageView());
+	}
 
-    public void onHelp() {
-        MessageBox.showInfo("Help not implemented yet!");
-    }
+	public void onHelp() {
+		MessageBox.showInfo("Help not implemented yet!");
+	}
 
-    public void onToogleStatusBar() {
-        xstatusBar.setVisible(!xstatusBar.isVisible());
-    }
+	public void onToogleStatusBar() {
+		xstatusBar.setVisible(!xstatusBar.isVisible());
+	}
 
-    public void onLookAndFeel() {
-        LookAndFeelDialog.showDialog();
-    }
+	public void onLookAndFeel() {
+		LookAndFeelDialog.showDialog();
+	}
 
-    public void onAbout() {
-        AboutDialog.showDialog();
-    }
+	public void onAbout() {
+		AboutDialog.showDialog();
+	}
 
-    public void onSettings() {
-        MessageBox.showInfo("Settings not implemented yet!");
-    }
+	public void onSettings() {
+		MessageBox.showInfo("Settings not implemented yet!");
+	}
 
-    public void addPageToCenter(View page) {
-        centerPanel.removeAll();
-        centerPanel.add(page.asComponent());
-        centerPanel.revalidate();
-        centerPanel.repaint();
-        page.asComponent().requestFocus();
-    }
+	public void addPageToCenter(View page) {
+		centerPanel.removeAll();
+		centerPanel.add(page.asComponent());
+		centerPanel.revalidate();
+		centerPanel.repaint();
+		page.asComponent().requestFocus();
+	}
 }

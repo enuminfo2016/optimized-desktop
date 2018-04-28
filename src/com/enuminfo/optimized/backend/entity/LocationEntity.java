@@ -20,15 +20,14 @@ import com.enuminfo.optimized.backend.TableType;
 
 /**
  * Location Entity
+ * 
  * @author Kumar
  */
 @Entity
-@Table (name = TableType.LOCATION)
-@NamedQueries ({ 
-	@NamedQuery (name = LocationEntity.FIND_ALL, query = "SELECT entity FROM LocationEntity entity"),
-	@NamedQuery (name = LocationEntity.FIND_BY_NAME, query = "SELECT entity FROM LocationEntity entity WHERE entity.name LIKE :name") 
-})
-@AttributeOverride(name = ColumnType.ID, column = @Column (name = ColumnType.ID))
+@Table(name = TableType.LOCATION)
+@NamedQueries({ @NamedQuery(name = LocationEntity.FIND_ALL, query = "SELECT entity FROM LocationEntity entity"),
+		@NamedQuery(name = LocationEntity.FIND_BY_NAME, query = "SELECT entity FROM LocationEntity entity WHERE entity.name LIKE :name") })
+@AttributeOverride(name = ColumnType.ID, column = @Column(name = ColumnType.ID))
 public class LocationEntity extends BaseEntity {
 
 	/**
@@ -38,22 +37,22 @@ public class LocationEntity extends BaseEntity {
 	public static final String FIND_ALL = "Location.FindAll";
 	public static final String FIND_BY_NAME = "Location.FindByName";
 
-	@Column (name = ColumnType.NAME)
+	@Column(name = ColumnType.NAME)
 	private String name;
 
-	@Column (name = ColumnType.PIN)
+	@Column(name = ColumnType.PIN)
 	private Long pin;
-	
-	@Column (name = ColumnType.CITY)
+
+	@Column(name = ColumnType.CITY)
 	private String city;
-	
-	@Column (name = ColumnType.STATE)
+
+	@Column(name = ColumnType.STATE)
 	private String state;
-	
-	@ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn (name = ColumnType.COUNTRY)
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = ColumnType.COUNTRY)
 	private CountryEntity country;
-	
+
 	public LocationEntity() {
 		// TODO Auto-generated constructor stub
 	}

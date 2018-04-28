@@ -25,6 +25,7 @@ import net.miginfocom.swing.MigLayout;
 
 /**
  * Customer Form
+ * 
  * @author Kumar
  */
 public class CustomerForm extends AbstractFormDialogView<Customer> {
@@ -35,20 +36,20 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 	private static final long serialVersionUID = 1L;
 	private Customer customer;
 	private boolean isNewModel = false;
-	
+
 	private JTextFieldExt textFieldExtCompanyName;
 	private JTextPane textPaneCompanyAddress;
 	private JTextFieldExt textFieldExtCompanyPhone;
 	private JTextFieldExt textFieldExtCompanyFax;
 	private JTextFieldExt textFieldExtCompanyEmail;
 	private JTextFieldExt textFieldExtCompanyWebSite;
-	
+
 	private JTextFieldExt textFieldExtPersonName;
 	private JTextFieldExt textFieldExtPersonDesignation;
 	private JTextFieldExt textFieldExtPersonMobile;
 	private JTextFieldExt textFieldExtPersonFax;
 	private JTextFieldExt textFieldExtPersonEmail;
-	
+
 	private JComboBox<ComboBoxItem> comboBoxAddressWork;
 	private JComboBox<ComboBoxItem> comboxBoxTypeOfOwnership;
 	private JComboBox<ComboBoxItem> comboxBoxNatureOfBusiness;
@@ -56,14 +57,14 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 	private JTextFieldExt textFieldExtMsme;
 	private JComboBox<ComboBoxItem> comboBoxBank;
 	private JTextFieldExt textFieldExtBankAccount;
-	
+
 	public CustomerForm(DataPageController<Customer> controller, Customer customer) {
 		super(AppController.get().getView(), controller);
 		this.customer = customer;
 		if (customer.getId() == 0)
 			isNewModel = true;
 	}
-	
+
 	@Override
 	public String getFormTitle() {
 		if (isNewModel)
@@ -81,11 +82,11 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 	public void buildUI() {
 		initComponents();
 		addPageToForm(I18n.OPTIMIZED.getString("Customer.Form.CompanyPage.Title"), buildCompanyPage());
-        addPageToForm(I18n.OPTIMIZED.getString("Customer.Form.PersonPage.Title"), buildPersonPage());
-        addPageToForm(I18n.OPTIMIZED.getString("Customer.Form.AccountPage.Title"), buildAccountPage());
-        popFields();
-        pack();
-        setSize(550, 530);
+		addPageToForm(I18n.OPTIMIZED.getString("Customer.Form.PersonPage.Title"), buildPersonPage());
+		addPageToForm(I18n.OPTIMIZED.getString("Customer.Form.AccountPage.Title"), buildAccountPage());
+		popFields();
+		pack();
+		setSize(550, 530);
 	}
 
 	private JPanel buildAccountPage() {
@@ -99,19 +100,19 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 		textFieldExtBankAccount = new JTextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.AddressWork")), "gap para");
-        panel.add(comboBoxAddressWork, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.TypeOfOwnership")), "gap para");
-        panel.add(comboxBoxTypeOfOwnership, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.NatureOfBusiness")), "gap para");
-        panel.add(comboxBoxNatureOfBusiness, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.NSIC")), "gap para");
-        panel.add(textFieldExtNsic, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.MSME")), "gap para");
-        panel.add(textFieldExtMsme, "span");
+		panel.add(comboBoxAddressWork, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.TypeOfOwnership")), "gap para");
+		panel.add(comboxBoxTypeOfOwnership, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.NatureOfBusiness")), "gap para");
+		panel.add(comboxBoxNatureOfBusiness, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.NSIC")), "gap para");
+		panel.add(textFieldExtNsic, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.MSME")), "gap para");
+		panel.add(textFieldExtMsme, "span");
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.BankAccount")), "gap para");
-        panel.add(textFieldExtBankAccount, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.Bank")), "gap para");
-        panel.add(comboBoxBank, "span");
+		panel.add(textFieldExtBankAccount, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.Bank")), "gap para");
+		panel.add(comboBoxBank, "span");
 		return panel;
 	}
 
@@ -124,15 +125,15 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 		textFieldExtPersonMobile = new JTextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonName")), "gap para");
-        panel.add(textFieldExtPersonName, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonDesignation")), "gap para");
-        panel.add(textFieldExtPersonDesignation, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonFax")), "gap para");
-        panel.add(textFieldExtPersonFax, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonEmail")), "gap para");
-        panel.add(textFieldExtPersonEmail, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonMobile")), "gap para");
-        panel.add(textFieldExtPersonMobile, "span");
+		panel.add(textFieldExtPersonName, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonDesignation")), "gap para");
+		panel.add(textFieldExtPersonDesignation, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonFax")), "gap para");
+		panel.add(textFieldExtPersonFax, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonEmail")), "gap para");
+		panel.add(textFieldExtPersonEmail, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonMobile")), "gap para");
+		panel.add(textFieldExtPersonMobile, "span");
 		return panel;
 	}
 
@@ -148,28 +149,28 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 		textFieldExtCompanyWebSite = new JTextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyName")), "gap para");
-        panel.add(textFieldExtCompanyName, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyAddress")), "gap para");
-        panel.add(textPaneCompanyAddress, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyPhone")), "gap para");
-        panel.add(textFieldExtCompanyPhone, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyFax")), "gap para");
-        panel.add(textFieldExtCompanyFax, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyEmail")), "gap para");
-        panel.add(textFieldExtCompanyEmail, "span");
-        panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyWebSite")), "gap para");
-        panel.add(textFieldExtCompanyWebSite, "span");
+		panel.add(textFieldExtCompanyName, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyAddress")), "gap para");
+		panel.add(textPaneCompanyAddress, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyPhone")), "gap para");
+		panel.add(textFieldExtCompanyPhone, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyFax")), "gap para");
+		panel.add(textFieldExtCompanyFax, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyEmail")), "gap para");
+		panel.add(textFieldExtCompanyEmail, "span");
+		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyWebSite")), "gap para");
+		panel.add(textFieldExtCompanyWebSite, "span");
 		return panel;
 	}
 
 	@Override
 	public void popFields() {
-		
+
 	}
 
 	@Override
 	public void pushFields() {
-		
+
 	}
 
 	@Override
@@ -179,11 +180,11 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 
 	@Override
 	public void onHelp() {
-		
+
 	}
-	
+
 	@Override
-    public boolean isMultiPageForm() {
-        return true;
-    }
+	public boolean isMultiPageForm() {
+		return true;
+	}
 }

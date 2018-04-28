@@ -24,6 +24,7 @@ import com.enuminfo.optimized.frontend.view.AppView;
 
 /**
  * Application Controller
+ * 
  * @author Kumar
  */
 public abstract class AppController {
@@ -33,7 +34,7 @@ public abstract class AppController {
 	protected static AppController controller;
 	protected AppView view;
 	private Splash splash;
-	
+
 	public AppController() {
 		// TODO Auto-generated constructor stub
 	}

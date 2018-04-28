@@ -6,6 +6,7 @@ package com.enuminfo.optimized.frontend.model;
 
 /**
  * Order Line Form
+ * 
  * @author Kumar
  */
 public class OrderLine extends Base {
@@ -18,7 +19,7 @@ public class OrderLine extends Base {
 	private double quantity;
 	private double unitPrice;
 	private double totalPrice;
-	
+
 	public OrderLine() {
 		// TODO Auto-generated constructor stub
 	}

@@ -12,6 +12,7 @@ import com.enuminfo.optimized.service.ProductService;
 
 /**
  * Dashboard Controller
+ * 
  * @author Kumar
  */
 public class DashboardController extends AbstractPageController {
@@ -19,7 +20,7 @@ public class DashboardController extends AbstractPageController {
 	public DashboardController() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public String getName() {
 		return DashboardController.class.getSimpleName();
@@ -33,7 +34,7 @@ public class DashboardController extends AbstractPageController {
 	public int getProductsCount() {
 		return new ProductService().getListWithNamedQuery().size();
 	}
-	
+
 	public int getCustomersCount() {
 		return new CustomerService().getListWithNamedQuery().size();
 	}

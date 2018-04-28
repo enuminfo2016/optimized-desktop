@@ -33,17 +33,18 @@ import net.miginfocom.swing.MigLayout;
 
 /**
  * Dashboard Page View
+ * 
  * @author Kumar
  */
 public class DashboardView implements PageView {
 
 	private JPanel pageView;
-    private PageController controller;
-    
-    public DashboardView() {
+	private PageController controller;
+
+	public DashboardView() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public String getTitle() {
 		return I18n.OPTIMIZED.getString("Dashboard.Home.Dashboard");
@@ -62,13 +63,13 @@ public class DashboardView implements PageView {
 	@Override
 	public void init(PageController controller) {
 		this.controller = controller;
-        initComponents();
+		initComponents();
 	}
 
 	private void initComponents() {
 		pageView = new JPanel(new BorderLayout());
-        pageView.add(getHeaderBar(), BorderLayout.NORTH);
-        pageView.add(getCenterPanel(), BorderLayout.CENTER);
+		pageView.add(getHeaderBar(), BorderLayout.NORTH);
+		pageView.add(getCenterPanel(), BorderLayout.CENTER);
 	}
 
 	@SuppressWarnings("serial")
@@ -86,7 +87,7 @@ public class DashboardView implements PageView {
 						AppController.get().getView().onOpenProducts();
 					}
 				});
-		
+
 		JPanel customerItem = createItemPanel(ViewHelpers.IMAGES + "customer.png",
 				I18n.OPTIMIZED.getString("Dashboard.Home.LinkCustomers") + " (" + customersCount + ")",
 				new AbstractAction() {
@@ -124,15 +125,15 @@ public class DashboardView implements PageView {
 	private Component getHeaderBar() {
 		JPanel headerBar = new JPanel(new MigLayout("insets 2 2 2 2"));
 
-        JLabel lblTitle = new JLabel(getTitle());
-        lblTitle.setIcon(new ImageIcon(getClass().getResource(getIconPath())));
-        lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD, 14));
+		JLabel lblTitle = new JLabel(getTitle());
+		lblTitle.setIcon(new ImageIcon(getClass().getResource(getIconPath())));
+		lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD, 14));
 
-        headerBar.setPreferredSize(new Dimension(lblTitle.getWidth(), lblTitle.getHeight() + 28));
-        headerBar.add(lblTitle, "dock center, gapleft 4");
+		headerBar.setPreferredSize(new Dimension(lblTitle.getWidth(), lblTitle.getHeight() + 28));
+		headerBar.add(lblTitle, "dock center, gapleft 4");
 
-        SubstanceLookAndFeel.setDecorationType(headerBar, DecorationAreaType.HEADER);
-        return headerBar;
+		SubstanceLookAndFeel.setDecorationType(headerBar, DecorationAreaType.HEADER);
+		return headerBar;
 	}
 
 	@Override

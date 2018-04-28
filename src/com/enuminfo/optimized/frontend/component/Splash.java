@@ -15,6 +15,7 @@ import javax.swing.JProgressBar;
 /**
  * Splash Form Component.
  * <p>
+ * 
  * <pre>
  * <code>
  *  Splash splash = new Splash(I18n.COMMON.getString("App.Title"), 
@@ -23,6 +24,7 @@ import javax.swing.JProgressBar;
  * </code>
  * </pre>
  * </p>
+ * 
  * @author Kumar
  */
 public class Splash extends JFrame {

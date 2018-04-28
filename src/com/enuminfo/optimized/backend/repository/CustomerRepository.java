@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.CustomerEntity;
 
 /**
  * Customer Repository
+ * 
  * @author Kumar
  */
 public class CustomerRepository extends AbstractRepository<CustomerEntity> {

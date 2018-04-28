@@ -8,6 +8,7 @@ import com.enuminfo.optimized.backend.entity.LocationEntity;
 
 /**
  * Location Repository
+ * 
  * @author Kumar
  */
 public class LocationRepository extends AbstractRepository<LocationEntity> {
