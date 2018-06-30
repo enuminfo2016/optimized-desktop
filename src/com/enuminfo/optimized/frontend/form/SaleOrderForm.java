@@ -1,6 +1,5 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ *
  */
 package com.enuminfo.optimized.frontend.form;
 
@@ -22,24 +21,22 @@ import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
-import com.enuminfo.optimized.framework.AbstractFormDialogView;
-import com.enuminfo.optimized.framework.DataPageController;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.component.ComboBoxItem;
-import com.enuminfo.optimized.frontend.component.JTextFieldExt;
+import com.enuminfo.optimized.frontend.component.TextFieldExt;
 import com.enuminfo.optimized.frontend.contoller.AppController;
+import com.enuminfo.optimized.frontend.framework.AbstractFormDialogView;
+import com.enuminfo.optimized.frontend.framework.DataPageController;
 import com.enuminfo.optimized.frontend.model.OrderLine;
 import com.enuminfo.optimized.frontend.model.SaleOrder;
-import com.enuminfo.optimized.service.CategoryService;
-import com.enuminfo.optimized.service.CustomerService;
-import com.enuminfo.optimized.service.ProductService;
+import com.enuminfo.optimized.frontend.service.CategoryService;
+import com.enuminfo.optimized.frontend.service.CustomerService;
+import com.enuminfo.optimized.frontend.service.ProductService;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * Sale Order Form
- * 
  * @author Kumar
  */
 public class SaleOrderForm extends AbstractFormDialogView<SaleOrder> {
@@ -51,8 +48,8 @@ public class SaleOrderForm extends AbstractFormDialogView<SaleOrder> {
 	private SaleOrder saleOrder;
 	private boolean isNewModel = false;
 
-	private JTextFieldExt textFieldExtOrderDate;
-	private JTextFieldExt textFieldExtOrderNumber;
+	private TextFieldExt textFieldExtOrderDate;
+	private TextFieldExt textFieldExtOrderNumber;
 	private JComboBox<ComboBoxItem> comboBoxCustomer;
 
 	private JButton btnAddLine;
@@ -73,8 +70,8 @@ public class SaleOrderForm extends AbstractFormDialogView<SaleOrder> {
 
 	private JComboBox<ComboBoxItem> comboBoxCategory;
 	private JComboBox<ComboBoxItem> comboBoxProduct;
-	private JTextFieldExt textFieldExtQuantity;
-	private JTextFieldExt textFieldExtUnitPrice;
+	private TextFieldExt textFieldExtQuantity;
+	private TextFieldExt textFieldExtUnitPrice;
 
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("EEEE', 'dd MMMM yyyy");
 
@@ -129,8 +126,8 @@ public class SaleOrderForm extends AbstractFormDialogView<SaleOrder> {
 				}
 			}
 		});
-		textFieldExtQuantity = new JTextFieldExt(20);
-		textFieldExtUnitPrice = new JTextFieldExt(20);
+		textFieldExtQuantity = new TextFieldExt(20);
+		textFieldExtUnitPrice = new TextFieldExt(20);
 		btnAddLine = new JButton(I18n.OPTIMIZED.getString("SaleOrder.Form.AddLine"));
 		JScrollPane scrollPane = new JScrollPane(orderLines, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -162,9 +159,9 @@ public class SaleOrderForm extends AbstractFormDialogView<SaleOrder> {
 	}
 
 	private JPanel buildSalePage() {
-		textFieldExtOrderDate = new JTextFieldExt(50);
+		textFieldExtOrderDate = new TextFieldExt(50);
 		textFieldExtOrderDate.setEditable(false);
-		textFieldExtOrderNumber = new JTextFieldExt(50);
+		textFieldExtOrderNumber = new TextFieldExt(50);
 		textFieldExtOrderNumber.requestFocus();
 		comboBoxCustomer = new JComboBox<>();
 		new CustomerService().getListOfReferences().forEach(item -> {

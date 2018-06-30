@@ -1,14 +1,11 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 import java.awt.Component;
 
 /**
- * View interface.
- * 
  * @author Kumar
  */
 public interface View {

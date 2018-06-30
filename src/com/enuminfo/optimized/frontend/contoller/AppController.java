@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.contoller;
 
@@ -15,7 +14,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.jvnet.lafwidget.LafWidget;
 import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.api.SubstanceConstants.TabContentPaneBorderKind;
-import org.jvnet.substance.skin.SubstanceMistAquaLookAndFeel;
+import org.jvnet.substance.skin.SubstanceOfficeBlue2007LookAndFeel;
 
 import com.enuminfo.optimized.backend.JpaUtil;
 import com.enuminfo.optimized.frontend.I18n;
@@ -23,8 +22,6 @@ import com.enuminfo.optimized.frontend.component.Splash;
 import com.enuminfo.optimized.frontend.view.AppView;
 
 /**
- * Application Controller
- * 
  * @author Kumar
  */
 public abstract class AppController {
@@ -44,15 +41,12 @@ public abstract class AppController {
 		JDialog.setDefaultLookAndFeelDecorated(true);
 
 		try {
-			UIManager.setLookAndFeel(new SubstanceMistAquaLookAndFeel());
+			UIManager.setLookAndFeel(new SubstanceOfficeBlue2007LookAndFeel());
 		} catch (UnsupportedLookAndFeelException ex) {
 			LOGGER.log(Level.SEVERE, "Substance Look and Feel Error", ex);
 		}
 
-		// TabbedPane border settings in substance look and feel.
 		UIManager.put(SubstanceLookAndFeel.TABBED_PANE_CONTENT_BORDER_KIND, TabContentPaneBorderKind.DOUBLE_PLACEMENT);
-
-		// Cut, copy, paste menu in TextField with substance look and feel.
 		UIManager.put(LafWidget.TEXT_EDIT_CONTEXT_MENU, true);
 
 		if (splash != null) {

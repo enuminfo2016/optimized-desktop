@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
@@ -13,18 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
 /**
- * Splash Form Component.
- * <p>
- * 
- * <pre>
- * <code>
- *  Splash splash = new Splash(I18n.COMMON.getString("App.Title"), 
- *      ViewHelpers.ICONS16 + "app.png", 
- *      ViewHelpers.IMAGES + "splash.png");
- * </code>
- * </pre>
- * </p>
- * 
  * @author Kumar
  */
 public class Splash extends JFrame {

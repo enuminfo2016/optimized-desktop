@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.backend;
 
@@ -9,8 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * JPA Util
- * 
  * @author Kumar
  */
 public class JpaUtil {

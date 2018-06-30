@@ -1,19 +1,14 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.model.Base;
-import com.enuminfo.optimized.service.AbstractService;
+import com.enuminfo.optimized.frontend.service.AbstractService;
 
 /**
- * Abstract Data Page Controller.
- * 
- * @param <T>
- *            model
  * @author Kumar
  */
 public abstract class AbstractDataPageController<T extends Base> implements DataPageController<T> {

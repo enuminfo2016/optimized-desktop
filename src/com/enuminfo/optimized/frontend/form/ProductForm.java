@@ -1,6 +1,5 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ *
  */
 package com.enuminfo.optimized.frontend.form;
 
@@ -8,22 +7,20 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.enuminfo.optimized.framework.AbstractFormDialogView;
-import com.enuminfo.optimized.framework.DataPageController;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.component.ComboBoxItem;
-import com.enuminfo.optimized.frontend.component.JTextFieldExt;
+import com.enuminfo.optimized.frontend.component.TextFieldExt;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.contoller.AppController;
+import com.enuminfo.optimized.frontend.framework.AbstractFormDialogView;
+import com.enuminfo.optimized.frontend.framework.DataPageController;
 import com.enuminfo.optimized.frontend.model.Product;
-import com.enuminfo.optimized.service.CategoryService;
+import com.enuminfo.optimized.frontend.service.CategoryService;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * Product Form
- * 
  * @author Kumar
  */
 public class ProductForm extends AbstractFormDialogView<Product> {
@@ -35,8 +32,8 @@ public class ProductForm extends AbstractFormDialogView<Product> {
 	private Product product;
 	private boolean isNewModel = false;
 
-	private JTextFieldExt textFieldExtName;
-	private JTextFieldExt textFieldExtCode;
+	private TextFieldExt textFieldExtName;
+	private TextFieldExt textFieldExtCode;
 	private JComboBox<ComboBoxItem> comboBoxCategory;
 
 	public ProductForm(DataPageController<Product> controller, Product product) {
@@ -68,8 +65,8 @@ public class ProductForm extends AbstractFormDialogView<Product> {
 			comboBoxCategory.addItem(item);
 		});
 		comboBoxCategory.requestFocus();
-		textFieldExtName = new JTextFieldExt(50);
-		textFieldExtCode = new JTextFieldExt(50);
+		textFieldExtName = new TextFieldExt(50);
+		textFieldExtCode = new TextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Product.Form.Category")), "gap para");
 		panel.add(comboBoxCategory, "span");

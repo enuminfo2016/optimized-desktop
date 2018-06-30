@@ -1,14 +1,11 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.model;
 
 import java.io.Serializable;
 
 /**
- * Base dto class for all dto models.
- * 
  * @author Kumar
  */
 public abstract class Base implements Serializable {

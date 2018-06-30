@@ -1,18 +1,15 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import com.enuminfo.optimized.framework.AbstractPageController;
-import com.enuminfo.optimized.framework.PageView;
+import com.enuminfo.optimized.frontend.framework.AbstractPageController;
+import com.enuminfo.optimized.frontend.framework.PageView;
+import com.enuminfo.optimized.frontend.service.CustomerService;
+import com.enuminfo.optimized.frontend.service.ProductService;
 import com.enuminfo.optimized.frontend.view.DashboardView;
-import com.enuminfo.optimized.service.CustomerService;
-import com.enuminfo.optimized.service.ProductService;
 
 /**
- * Dashboard Controller
- * 
  * @author Kumar
  */
 public class DashboardController extends AbstractPageController {

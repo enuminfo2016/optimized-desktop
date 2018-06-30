@@ -1,6 +1,5 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.backend.entity;
 
@@ -19,8 +18,6 @@ import com.enuminfo.optimized.backend.ColumnType;
 import com.enuminfo.optimized.backend.TableType;
 
 /**
- * Location Entity
- * 
  * @author Kumar
  */
 @Entity

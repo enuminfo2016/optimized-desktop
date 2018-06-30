@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.backend.entity;
 
@@ -15,8 +14,6 @@ import javax.persistence.MappedSuperclass;
 import com.enuminfo.optimized.backend.ColumnType;
 
 /**
- * Base entity class for all entity models.
- * 
  * @author Kumar
  */
 @MappedSuperclass

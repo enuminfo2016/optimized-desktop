@@ -1,6 +1,5 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.contoller;
 
@@ -8,17 +7,15 @@ import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
 
 import java.util.List;
 
-import com.enuminfo.optimized.framework.AbstractDataPageController;
-import com.enuminfo.optimized.framework.DataPageView;
 import com.enuminfo.optimized.frontend.form.ProductForm;
+import com.enuminfo.optimized.frontend.framework.AbstractDataPageController;
+import com.enuminfo.optimized.frontend.framework.DataPageView;
 import com.enuminfo.optimized.frontend.model.Product;
+import com.enuminfo.optimized.frontend.service.AbstractService;
+import com.enuminfo.optimized.frontend.service.ProductService;
 import com.enuminfo.optimized.frontend.view.ProductView;
-import com.enuminfo.optimized.service.AbstractService;
-import com.enuminfo.optimized.service.ProductService;
 
 /**
- * Product Controller
- * 
  * @author Kumar
  */
 public class ProductController extends AbstractDataPageController<Product> {

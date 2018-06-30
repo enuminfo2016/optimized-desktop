@@ -1,6 +1,5 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.view;
 
@@ -22,18 +21,16 @@ import org.jdesktop.swingx.JXHyperlink;
 import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.painter.decoration.DecorationAreaType;
 
-import com.enuminfo.optimized.framework.PageController;
-import com.enuminfo.optimized.framework.PageView;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.contoller.AppController;
 import com.enuminfo.optimized.frontend.contoller.DashboardController;
+import com.enuminfo.optimized.frontend.framework.PageController;
+import com.enuminfo.optimized.frontend.framework.PageView;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * Dashboard Page View
- * 
  * @author Kumar
  */
 public class DashboardView implements PageView {

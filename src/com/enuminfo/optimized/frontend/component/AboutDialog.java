@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
@@ -27,8 +26,6 @@ import org.jdesktop.swingx.JXHeader;
 import org.jdesktop.swingx.JXHyperlink;
 
 /**
- * About Dialog
- * 
  * @author Kumar
  */
 public class AboutDialog extends JDialog {

@@ -1,6 +1,5 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.form;
 
@@ -12,20 +11,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import com.enuminfo.optimized.framework.AbstractFormDialogView;
-import com.enuminfo.optimized.framework.DataPageController;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.component.ComboBoxItem;
-import com.enuminfo.optimized.frontend.component.JTextFieldExt;
+import com.enuminfo.optimized.frontend.component.TextFieldExt;
 import com.enuminfo.optimized.frontend.contoller.AppController;
+import com.enuminfo.optimized.frontend.framework.AbstractFormDialogView;
+import com.enuminfo.optimized.frontend.framework.DataPageController;
 import com.enuminfo.optimized.frontend.model.Customer;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * Customer Form
- * 
  * @author Kumar
  */
 public class CustomerForm extends AbstractFormDialogView<Customer> {
@@ -37,26 +34,26 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 	private Customer customer;
 	private boolean isNewModel = false;
 
-	private JTextFieldExt textFieldExtCompanyName;
+	private TextFieldExt textFieldExtCompanyName;
 	private JTextPane textPaneCompanyAddress;
-	private JTextFieldExt textFieldExtCompanyPhone;
-	private JTextFieldExt textFieldExtCompanyFax;
-	private JTextFieldExt textFieldExtCompanyEmail;
-	private JTextFieldExt textFieldExtCompanyWebSite;
+	private TextFieldExt textFieldExtCompanyPhone;
+	private TextFieldExt textFieldExtCompanyFax;
+	private TextFieldExt textFieldExtCompanyEmail;
+	private TextFieldExt textFieldExtCompanyWebSite;
 
-	private JTextFieldExt textFieldExtPersonName;
-	private JTextFieldExt textFieldExtPersonDesignation;
-	private JTextFieldExt textFieldExtPersonMobile;
-	private JTextFieldExt textFieldExtPersonFax;
-	private JTextFieldExt textFieldExtPersonEmail;
+	private TextFieldExt textFieldExtPersonName;
+	private TextFieldExt textFieldExtPersonDesignation;
+	private TextFieldExt textFieldExtPersonMobile;
+	private TextFieldExt textFieldExtPersonFax;
+	private TextFieldExt textFieldExtPersonEmail;
 
 	private JComboBox<ComboBoxItem> comboBoxAddressWork;
 	private JComboBox<ComboBoxItem> comboxBoxTypeOfOwnership;
 	private JComboBox<ComboBoxItem> comboxBoxNatureOfBusiness;
-	private JTextFieldExt textFieldExtNsic;
-	private JTextFieldExt textFieldExtMsme;
+	private TextFieldExt textFieldExtNsic;
+	private TextFieldExt textFieldExtMsme;
 	private JComboBox<ComboBoxItem> comboBoxBank;
-	private JTextFieldExt textFieldExtBankAccount;
+	private TextFieldExt textFieldExtBankAccount;
 
 	public CustomerForm(DataPageController<Customer> controller, Customer customer) {
 		super(AppController.get().getView(), controller);
@@ -94,10 +91,10 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 		comboBoxAddressWork.requestFocus();
 		comboxBoxTypeOfOwnership = new JComboBox<>();
 		comboxBoxNatureOfBusiness = new JComboBox<>();
-		textFieldExtNsic = new JTextFieldExt(50);
-		textFieldExtMsme = new JTextFieldExt(50);
+		textFieldExtNsic = new TextFieldExt(50);
+		textFieldExtMsme = new TextFieldExt(50);
 		comboBoxBank = new JComboBox<>();
-		textFieldExtBankAccount = new JTextFieldExt(50);
+		textFieldExtBankAccount = new TextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.AddressWork")), "gap para");
 		panel.add(comboBoxAddressWork, "span");
@@ -117,12 +114,12 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 	}
 
 	private JPanel buildPersonPage() {
-		textFieldExtPersonName = new JTextFieldExt(50);
+		textFieldExtPersonName = new TextFieldExt(50);
 		textFieldExtPersonName.requestFocus();
-		textFieldExtPersonDesignation = new JTextFieldExt(50);
-		textFieldExtPersonFax = new JTextFieldExt(50);
-		textFieldExtPersonEmail = new JTextFieldExt(50);
-		textFieldExtPersonMobile = new JTextFieldExt(50);
+		textFieldExtPersonDesignation = new TextFieldExt(50);
+		textFieldExtPersonFax = new TextFieldExt(50);
+		textFieldExtPersonEmail = new TextFieldExt(50);
+		textFieldExtPersonMobile = new TextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.PersonName")), "gap para");
 		panel.add(textFieldExtPersonName, "span");
@@ -138,15 +135,15 @@ public class CustomerForm extends AbstractFormDialogView<Customer> {
 	}
 
 	private JPanel buildCompanyPage() {
-		textFieldExtCompanyName = new JTextFieldExt(50);
+		textFieldExtCompanyName = new TextFieldExt(50);
 		textFieldExtCompanyName.requestFocus();
 		textPaneCompanyAddress = new JTextPane();
 		textPaneCompanyAddress.setPreferredSize(new Dimension(50, 200));
 		textPaneCompanyAddress.setMargin(new Insets(0, 0, 0, 0));
-		textFieldExtCompanyPhone = new JTextFieldExt(50);
-		textFieldExtCompanyFax = new JTextFieldExt(50);
-		textFieldExtCompanyEmail = new JTextFieldExt(50);
-		textFieldExtCompanyWebSite = new JTextFieldExt(50);
+		textFieldExtCompanyPhone = new TextFieldExt(50);
+		textFieldExtCompanyFax = new TextFieldExt(50);
+		textFieldExtCompanyEmail = new TextFieldExt(50);
+		textFieldExtCompanyWebSite = new TextFieldExt(50);
 		JPanel panel = new JPanel(new MigLayout("insets 20 10 10 10", "[][50:100,fill][fill,grow]", ""));
 		panel.add(new JLabel(I18n.OPTIMIZED.getString("Customer.Form.CompanyName")), "gap para");
 		panel.add(textFieldExtCompanyName, "span");

@@ -1,8 +1,7 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.service;
+package com.enuminfo.optimized.frontend.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,8 +20,6 @@ import com.enuminfo.optimized.frontend.component.ComboBoxItem;
 import com.enuminfo.optimized.frontend.model.SaleOrder;
 
 /**
- * Sale Order Service
- * 
  * @author Kumar
  */
 public class SaleOrderService extends AbstractService<SaleOrder> {

@@ -1,8 +1,7 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.service;
+package com.enuminfo.optimized.frontend.service;
 
 import java.util.List;
 import java.util.Map;
@@ -11,10 +10,6 @@ import com.enuminfo.optimized.frontend.component.ComboBoxItem;
 import com.enuminfo.optimized.frontend.model.Base;
 
 /**
- * Abstract Service for all services.
- * 
- * @param <T>
- *            model
  * @author Kumar
  */
 public abstract class AbstractService<T extends Base> {

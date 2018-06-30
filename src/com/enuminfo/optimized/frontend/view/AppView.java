@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.view;
 
@@ -30,7 +29,6 @@ import org.jvnet.flamingo.ribbon.RibbonElementPriority;
 import org.jvnet.flamingo.ribbon.RibbonTask;
 import org.jvnet.flamingo.ribbon.resize.CoreRibbonResizePolicies;
 
-import com.enuminfo.optimized.framework.View;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.component.AboutDialog;
@@ -41,10 +39,9 @@ import com.enuminfo.optimized.frontend.contoller.CustomerController;
 import com.enuminfo.optimized.frontend.contoller.DashboardController;
 import com.enuminfo.optimized.frontend.contoller.ProductController;
 import com.enuminfo.optimized.frontend.contoller.SaleOrderController;
+import com.enuminfo.optimized.frontend.framework.View;
 
 /**
- * Application View
- * 
  * @author Kumar
  */
 public class AppView extends JRibbonFrame {
@@ -68,9 +65,7 @@ public class AppView extends JRibbonFrame {
 
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		initComponents();
-		setSize(1024, 768);
-		// for max screen
-		// setExtendedState(MAXIMIZED_BOTH);
+		ViewHelpers.center(this);
 		setLocationRelativeTo(null);
 	}
 
@@ -84,10 +79,8 @@ public class AppView extends JRibbonFrame {
 
 		getContentPane().add(buildStatusBar(), BorderLayout.SOUTH);
 
-		// ribbon menu
 		configureRibbonMenu();
 
-		// add dashboard page
 		DashboardController dashboardController = new DashboardController();
 		centerPanel = new JPanel(new BorderLayout());
 		centerPanel.setBorder(BorderFactory.createMatteBorder(0, -1, 0, -1,
@@ -108,7 +101,6 @@ public class AppView extends JRibbonFrame {
 	}
 
 	private void configureRibbonMenu() {
-		// file task
 		RibbonTask fileTask = new RibbonTask(I18n.COMMON.getString("AppView.File"), getActionsBand());
 		fileTask.setKeyTip("F");
 
@@ -122,7 +114,6 @@ public class AppView extends JRibbonFrame {
 		configureTaskBar();
 		configureApplicationMenu();
 
-		// help button to left side
 		this.getRibbon().configureHelp(ViewHelpers.createResizableIcon(
 				new ImageIcon(getClass().getResource(ViewHelpers.ICONS16 + "help.png"))), new ActionListener() {
 					@Override

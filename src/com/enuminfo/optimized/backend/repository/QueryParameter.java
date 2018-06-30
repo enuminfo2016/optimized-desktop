@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.backend.repository;
 
@@ -8,13 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Query Parameter.
- * 
- * <pre>
- * // import static com.devsniper.desktop.customers.service.QueryParameter.*;
- * count = categoryService.findWithNamedQuery(Category.FIND_ALL, with(&quot;name&quot;, "filter").parameters()).size();
- * </pre>
- * 
  * @author Kumar
  */
 public class QueryParameter {

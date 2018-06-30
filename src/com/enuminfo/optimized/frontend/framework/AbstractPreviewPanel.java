@@ -1,8 +1,7 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -26,10 +25,6 @@ import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.model.Base;
 
 /**
- * Preview panel for page views.
- * 
- * @param <T>
- *            entity
  * @author Kumar
  */
 public abstract class AbstractPreviewPanel<T extends Base> extends JPanel {

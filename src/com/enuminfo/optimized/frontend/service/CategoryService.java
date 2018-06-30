@@ -1,8 +1,7 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.service;
+package com.enuminfo.optimized.frontend.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +13,6 @@ import com.enuminfo.optimized.frontend.component.ComboBoxItem;
 import com.enuminfo.optimized.frontend.model.Category;
 
 /**
- * Category Service
- * 
  * @author Kumar
  */
 public class CategoryService extends AbstractService<Category> {

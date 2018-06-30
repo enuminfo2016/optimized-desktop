@@ -1,12 +1,9 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 /**
- * Abstract Page Controller
- * 
  * @author Kumar
  */
 public abstract class AbstractPageController implements PageController {

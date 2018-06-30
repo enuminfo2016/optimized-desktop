@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
@@ -11,22 +10,9 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * JTextFieldExt Component.
- * <p>
- * JTextField with max lenght property. <br/>
- * </p>
- * <p>
- * 
- * <pre>
- * <code>
- *      JTextFieldExt tfxName = new JTextFieldExt(50);
- * </code>
- * </pre>
- * </p>
- * 
  * @author Kumar
  */
-public class JTextFieldExt extends JTextField {
+public class TextFieldExt extends JTextField {
 
 	/**
 	 * 
@@ -35,7 +21,7 @@ public class JTextFieldExt extends JTextField {
 
 	private int maxLength;
 
-	public JTextFieldExt(int maxLength) {
+	public TextFieldExt(int maxLength) {
 		super();
 		this.maxLength = maxLength;
 		this.setDocument(new PlainDocumentExt(maxLength));

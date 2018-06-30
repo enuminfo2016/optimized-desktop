@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.backend.repository;
 
@@ -15,10 +14,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 /**
- * Abstract Repository for all repositories.
- * 
- * @param <T>
- *            entity
  * @author Kumar
  */
 @SuppressWarnings("unchecked")

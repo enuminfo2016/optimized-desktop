@@ -1,12 +1,9 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 /**
- * Page View interface
- * 
  * @author Kumar
  */
 public interface PageView extends View {

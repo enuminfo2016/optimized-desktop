@@ -1,14 +1,11 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.model;
 
 import java.util.List;
 
 /**
- * Sale Order Form
- * 
  * @author Kumar
  */
 public class SaleOrder extends Base {

@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
@@ -64,8 +63,6 @@ import org.jvnet.substance.skin.SubstanceSaharaLookAndFeel;
 import org.jvnet.substance.skin.SubstanceTwilightLookAndFeel;
 
 /**
- * Look And Feel Dialog
- * 
  * @author Kumar
  */
 public class LookAndFeelDialog extends JDialog {

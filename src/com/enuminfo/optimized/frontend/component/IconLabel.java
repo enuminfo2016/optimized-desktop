@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
@@ -9,8 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 /**
- * Icon Label component.
- * 
  * @author Kumar
  */
 public class IconLabel extends JLabel {

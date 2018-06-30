@@ -1,12 +1,9 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.model;
 
 /**
- * Bank DTO
- * 
  * @author Kumar
  */
 public class Bank extends Base {

@@ -1,14 +1,10 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend;
 
-import java.awt.Component;
-
-import javax.swing.*;
-
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -22,9 +18,13 @@ import java.io.IOException;
 import java.net.URI;
 import java.text.ParseException;
 import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import javax.swing.AbstractButton;
+import javax.swing.Action;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
 
 import org.jdesktop.swingx.JXTitledSeparator;
@@ -37,18 +37,15 @@ import org.jvnet.substance.utils.SubstanceColorSchemeUtilities;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 
 /**
- * View Helpers
- * 
  * @author Kumar
  */
+@SuppressWarnings("rawtypes")
 public class ViewHelpers {
 
-	private final static Logger LOGGER = Logger.getLogger(ViewHelpers.class.getName());
-
-	public static final String ICONS12 = "/com/enuminfo/optimized/resources/icons12/";
-	public static final String ICONS16 = "/com/enuminfo/optimized/resources/icons16/";
-	public static final String ICONS22 = "/com/enuminfo/optimized/resources/icons22/";
-	public static final String IMAGES = "/com/enuminfo/optimized/resources/images/";
+	public static final String ICONS12 = "/com/enuminfo/optimized/frontend/resources/icons12/";
+	public static final String ICONS16 = "/com/enuminfo/optimized/frontend/resources/icons16/";
+	public static final String ICONS22 = "/com/enuminfo/optimized/frontend/resources/icons22/";
+	public static final String IMAGES = "/com/enuminfo/optimized/frontend/resources/images/";
 
 	public ViewHelpers() {
 		// TODO Auto-generated constructor stub
@@ -140,21 +137,21 @@ public class ViewHelpers {
 	public static void browseUrl(String url) {
 		try {
 			Desktop.getDesktop().browse(URI.create(url));
-		} catch (IOException ex) {
-			LOGGER.log(Level.SEVERE, "Desktop Url browse action error", ex);
+		} catch (IOException e) {
+			MessageBox.showError("Desktop Url browse action error", e);
 		}
 	}
-	
+
 	protected static int cascadeOriginX = -1;
 	protected static int cascadeOriginY = -1;
-	
-	protected static double snailAngle = Math.PI/2.0;
+
+	protected static double snailAngle = Math.PI / 2.0;
 	protected static double snailAngleOffset = 0.0;
-	protected static double snailLength = 3.0/4.0;
+	protected static double snailLength = 3.0 / 4.0;
 	protected static int snailDummy = 0;
-	
+
 	protected static int cascadeStep = 30;
-	
+
 	public static void centerOnTop(Window win) {
 		center(win);
 		int posX = win.getLocation().x;
@@ -329,10 +326,8 @@ public class ViewHelpers {
 		Dimension frameSize = win.getSize();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		screenSize.width = Math.min(screenSize.width, 1280);
-		int x = (int) ((screenSize.width / 2.0) * snailLength * Math
-				.cos(snailAngleOffset + snailAngle));
-		int y = (int) ((screenSize.height / 2.0) * snailLength * Math
-				.sin(snailAngleOffset + snailAngle));
+		int x = (int) ((screenSize.width / 2.0) * snailLength * Math.cos(snailAngleOffset + snailAngle));
+		int y = (int) ((screenSize.height / 2.0) * snailLength * Math.sin(snailAngleOffset + snailAngle));
 		int posX = (screenSize.width - frameSize.width) / 2 + x;
 		int posY = (screenSize.height - frameSize.height) / 2 + y;
 
@@ -356,23 +351,19 @@ public class ViewHelpers {
 	public static void enableComponents(Container c, boolean b) {
 		for (int i = 0; i < c.getComponentCount(); i++) {
 			c.getComponent(i).setEnabled(b);
-			if ((c.getComponent(i) instanceof Container)
-					&& ((Container) c).getComponentCount() > 0) {
+			if ((c.getComponent(i) instanceof Container) && ((Container) c).getComponentCount() > 0) {
 				enableComponents((Container) c.getComponent(i), b);
 			}
 		}
 	}
 
-	public static void enableComponents(Container c, boolean b,
-			Hashtable exceptions) {
+	public static void enableComponents(Container c, boolean b, Hashtable exceptions) {
 		if (!exceptions.contains(c)) {
 			for (int i = 0; i < c.getComponentCount(); i++) {
 				if (!exceptions.contains(c.getComponent(i))) {
 					c.getComponent(i).setEnabled(b);
-					if ((c.getComponent(i) instanceof Container)
-							&& ((Container) c).getComponentCount() > 0) {
-						enableComponents((Container) c.getComponent(i), b,
-								exceptions);
+					if ((c.getComponent(i) instanceof Container) && ((Container) c).getComponentCount() > 0) {
+						enableComponents((Container) c.getComponent(i), b, exceptions);
 					}
 				}
 			}
@@ -389,7 +380,8 @@ public class ViewHelpers {
 	public static boolean isInScreen(Window win) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Rectangle frameBounds = win.getBounds();
-		boolean inScreen = (((frameBounds.x + frameBounds.width) < screenSize.width) && ((frameBounds.y + frameBounds.height) < screenSize.height));
+		boolean inScreen = (((frameBounds.x + frameBounds.width) < screenSize.width)
+				&& ((frameBounds.y + frameBounds.height) < screenSize.height));
 		return inScreen;
 	}
 }

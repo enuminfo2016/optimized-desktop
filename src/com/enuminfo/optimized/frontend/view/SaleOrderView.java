@@ -1,19 +1,16 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.view;
 
-import com.enuminfo.optimized.framework.AbstractDataPageView;
-import com.enuminfo.optimized.framework.AbstractPreviewPanel;
-import com.enuminfo.optimized.framework.EntityTableColumn;
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
+import com.enuminfo.optimized.frontend.framework.AbstractDataPageView;
+import com.enuminfo.optimized.frontend.framework.AbstractPreviewPanel;
+import com.enuminfo.optimized.frontend.framework.EntityTableColumn;
 import com.enuminfo.optimized.frontend.model.SaleOrder;
 
 /**
- * Sale Order Page View
- * 
  * @author Kumar
  */
 public class SaleOrderView extends AbstractDataPageView<SaleOrder> {

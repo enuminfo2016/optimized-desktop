@@ -1,12 +1,9 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.model;
 
 /**
- * Order Line Form
- * 
  * @author Kumar
  */
 public class OrderLine extends Base {

@@ -1,8 +1,7 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -26,10 +25,6 @@ import com.enuminfo.optimized.frontend.ViewHelpers;
 import com.enuminfo.optimized.frontend.model.Base;
 
 /**
- * Abstract Form View for data editing in JDialog.
- * 
- * @param <T>
- *            entity
  * @author Kumar
  */
 public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
@@ -128,7 +123,6 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 			toolBar.add(ViewHelpers.createToolButton(acPrintPreview, true, true));
 			toolBar.add(ViewHelpers.createToolButton(acPrint, true, true));
 		}
-		// toolBar.add(ViewHelpers.createToolButton(acHelp, true, true));
 		toolBar.add(ViewHelpers.createToolButton(acClose, true, true));
 		return toolBar;
 	}

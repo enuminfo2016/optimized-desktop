@@ -1,8 +1,7 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -34,16 +33,12 @@ import org.jvnet.substance.painter.decoration.DecorationAreaType;
 
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.component.JSearchField;
+import com.enuminfo.optimized.frontend.component.SearchField;
 import com.enuminfo.optimized.frontend.model.Base;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * Abstract Page View
- * 
- * @param <T>
- *            entity
  * @author Kumar
  */
 public abstract class AbstractDataPageView<T extends Base> implements DataPageView<T> {
@@ -53,20 +48,17 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 	protected JSplitPane splitPane;
 	private AbstractPreviewPanel<T> previewPanel;
 
-	// default page actions
 	private Action acAddNew;
 	private Action acEdit;
 	private Action acDelete;
 	private Action acRefresh;
 	private Action acSearch;
-	protected JSearchField searchField;
+	protected SearchField searchField;
 
-	// jxtable
 	protected JXTable xtable;
 	protected JXTableHeader xtableHeader;
 	private EntityTableModel tableModel;
 
-	// pager actions
 	private Action acFirstPage;
 	private Action acPreviousPage;
 	private Action acNextPage;
@@ -98,7 +90,6 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 		viewPanel.add(getHeaderBar(), BorderLayout.NORTH);
 		viewPanel.add(getTablePanel(), BorderLayout.CENTER);
 		dataPageView = viewPanel;
-		// preview panel
 		previewPanel = getPreviewPanel();
 		if (previewPanel != null) {
 			splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
@@ -120,16 +111,14 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 		lblTitle.setIcon(new ImageIcon(getClass().getResource(getIconPath())));
 		lblTitle.setFont(lblTitle.getFont().deriveFont(Font.BOLD, 14));
 
-		// JSearchField
 		acSearch = new AbstractAction("search") {
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				setTableFilter();
 			}
 		};
-		searchField = new JSearchField(acSearch);
+		searchField = new SearchField(acSearch);
 
-		// toolbar
 		JToolBar tbHeader = new JToolBar();
 		tbHeader.setFloatable(false);
 		tbHeader.setRollover(true);
@@ -183,15 +172,12 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 		xtable.setHighlighters(HighlighterFactory.createSimpleStriping(HighlighterFactory.BEIGE));
 		xtable.getTableHeader().setPreferredSize(new Dimension(xtable.getTableHeader().getPreferredSize().width, 19));
 
-		// table model and build columns
 		tableModel = new EntityTableModel();
 		addTableColumns();
 		xtable.setModel(tableModel);
 
-		// xtable AutoResizeMode
 		xtable.setAutoResizeMode(getJXTableAutoResizeMode());
 
-		// toolbar
 		JToolBar tbPager = new JToolBar();
 		tbPager.setFloatable(false);
 		tbPager.setRollover(true);
@@ -220,7 +206,6 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 		tablePanel.add(new JScrollPane(xtable), BorderLayout.CENTER);
 		tablePanel.add(tbPager, BorderLayout.SOUTH);
 
-		// xtable columns settings
 		setUpColumns();
 		return tablePanel;
 	}

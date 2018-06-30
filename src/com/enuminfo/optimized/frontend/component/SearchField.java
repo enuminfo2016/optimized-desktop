@@ -1,6 +1,5 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
@@ -18,11 +17,9 @@ import org.jdesktop.xswingx.PromptSupport;
 import com.enuminfo.optimized.frontend.ViewHelpers;
 
 /**
- * JSearchField component.
- * 
  * @author Kumar
  */
-public class JSearchField extends JPanel implements KeyListener {
+public class SearchField extends JPanel implements KeyListener {
 
 	/**
 	 * 
@@ -32,11 +29,11 @@ public class JSearchField extends JPanel implements KeyListener {
 	private final Action acSearch;
 	private String prompt;
 
-	public JSearchField(Action acSearch) {
+	public SearchField(Action acSearch) {
 		this(acSearch, "Search");
 	}
 
-	public JSearchField(Action acSearch, String prompt) {
+	public SearchField(Action acSearch, String prompt) {
 		super(new BorderLayout());
 		this.acSearch = acSearch;
 		this.prompt = prompt;

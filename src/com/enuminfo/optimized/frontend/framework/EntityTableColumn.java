@@ -1,22 +1,17 @@
 /*
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
-package com.enuminfo.optimized.framework;
+package com.enuminfo.optimized.frontend.framework;
 
 import java.lang.reflect.Field;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import com.enuminfo.optimized.frontend.component.MessageBox;
 
 /**
- * Entity table column model
- * 
  * @author Kumar
  */
 @SuppressWarnings("rawtypes")
 public class EntityTableColumn {
-
-	private static final Logger LOGGER = Logger.getLogger(EntityTableColumn.class.getName());
 
 	private String title;
 	private String fieldName;
@@ -43,13 +38,9 @@ public class EntityTableColumn {
 		try {
 			Field field = entity.getClass().getDeclaredField(getFieldName());
 			field.setAccessible(true);
-			try {
-				return field.get(entity);
-			} catch (IllegalArgumentException | IllegalAccessException ex) {
-				LOGGER.log(Level.SEVERE, null, ex);
-			}
-		} catch (NoSuchFieldException | SecurityException ex) {
-			LOGGER.log(Level.SEVERE, null, ex);
+			return field.get(entity);
+		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+			MessageBox.showError(e.getMessage(), e);
 		}
 		return null;
 	}
@@ -59,8 +50,8 @@ public class EntityTableColumn {
 			Field field = entity.getClass().getDeclaredField(getFieldName());
 			field.setAccessible(true);
 			field.set(entity, value);
-		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
-			LOGGER.log(Level.SEVERE, null, ex);
+		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+			MessageBox.showError(e.getMessage(), e);
 		}
 	}
 

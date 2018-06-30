@@ -1,14 +1,11 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.component;
 
 import java.io.Serializable;
 
 /**
- * ComboBox Item
- * 
  * @author Kumar
  */
 public class ComboBoxItem implements Serializable {

@@ -1,12 +1,9 @@
 /**
- * Optimized Java Swing Application Demo
- * Copyright(c) 2018, enuminfo.com
+ * 
  */
 package com.enuminfo.optimized.frontend.model;
 
 /**
- * Customer DTO
- * 
  * @author Kumar
  */
 public class Customer extends Base {
