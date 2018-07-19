@@ -53,8 +53,6 @@ public class AppView extends JRibbonFrame {
 
 	private JXStatusBar xstatusBar;
 	private JPanel centerPanel;
-
-	// show exit message box?
 	private final boolean showExitDialog = false;
 
 	public AppView(String title) {
@@ -62,7 +60,6 @@ public class AppView extends JRibbonFrame {
 		this.setIconImages(
 				Arrays.asList(new ImageIcon(getClass().getResource(ViewHelpers.ICONS16 + "app.png")).getImage(),
 						new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "app.png")).getImage()));
-
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		initComponents();
 		ViewHelpers.center(this);
@@ -76,17 +73,13 @@ public class AppView extends JRibbonFrame {
 				exitForm(e);
 			}
 		});
-
 		getContentPane().add(buildStatusBar(), BorderLayout.SOUTH);
-
 		configureRibbonMenu();
-
 		DashboardController dashboardController = new DashboardController();
 		centerPanel = new JPanel(new BorderLayout());
 		centerPanel.setBorder(BorderFactory.createMatteBorder(0, -1, 0, -1,
 				ViewHelpers.getSubstanceComponentBorderColor(centerPanel)));
 		centerPanel.add(dashboardController.getPageView().asComponent(), BorderLayout.CENTER);
-
 		getContentPane().add(centerPanel, BorderLayout.CENTER);
 		pack();
 	}
@@ -103,17 +96,13 @@ public class AppView extends JRibbonFrame {
 	private void configureRibbonMenu() {
 		RibbonTask fileTask = new RibbonTask(I18n.COMMON.getString("AppView.File"), getActionsBand());
 		fileTask.setKeyTip("F");
-
 		RibbonTask helpTask = new RibbonTask(I18n.COMMON.getString("AppView.Window"), getViewBand(), getExtrasBand(),
 				getHelpBand());
 		helpTask.setKeyTip("H");
-
 		this.getRibbon().addTask(fileTask);
 		this.getRibbon().addTask(helpTask);
-
 		configureTaskBar();
 		configureApplicationMenu();
-
 		this.getRibbon().configureHelp(ViewHelpers.createResizableIcon(
 				new ImageIcon(getClass().getResource(ViewHelpers.ICONS16 + "help.png"))), new ActionListener() {
 					@Override
@@ -137,7 +126,6 @@ public class AppView extends JRibbonFrame {
 		JRibbonBand actionsBand = new JRibbonBand(I18n.COMMON.getString("AppView.ActionsBand"),
 				new EmptyResizableIcon(22));
 		actionsBand.setResizePolicies(CoreRibbonResizePolicies.getCorePoliciesRestrictive(actionsBand));
-
 		JCommandButton cbtnDashboard = new JCommandButton(I18n.OPTIMIZED.getString("Action.Dashboard"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "dashboard.png"))));
 		cbtnDashboard.addActionListener(new ActionListener() {
@@ -148,7 +136,6 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnDashboard.setActionKeyTip("D");
 		actionsBand.addCommandButton(cbtnDashboard, RibbonElementPriority.TOP);
-
 		JCommandButton cbtnCustomers = new JCommandButton(I18n.OPTIMIZED.getString("Action.Customers"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "customer.png"))));
 		cbtnCustomers.addActionListener(new ActionListener() {
@@ -159,7 +146,6 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnCustomers.setActionKeyTip("C");
 		actionsBand.addCommandButton(cbtnCustomers, RibbonElementPriority.TOP);
-
 		JCommandButton cbtnProducts = new JCommandButton(I18n.OPTIMIZED.getString("Action.Products"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
 		cbtnProducts.addActionListener(new ActionListener() {
@@ -170,7 +156,6 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnProducts.setActionKeyTip("A");
 		actionsBand.addCommandButton(cbtnProducts, RibbonElementPriority.TOP);
-
 		JCommandButton cbtnOrders = new JCommandButton(I18n.OPTIMIZED.getString("Action.Orders"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
 		cbtnOrders.addActionListener(new ActionListener() {
@@ -182,13 +167,11 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnOrders.setActionKeyTip("O");
 		actionsBand.addCommandButton(cbtnOrders, RibbonElementPriority.TOP);
-
 		return actionsBand;
 	}
 
 	private JRibbonBand getViewBand() {
 		JRibbonBand viewBand = new JRibbonBand(I18n.COMMON.getString("AppView.ViewBand"), new EmptyResizableIcon(22));
-
 		JCommandToggleButton cbtnStatusBar = new JCommandToggleButton(I18n.COMMON.getString("Action.StatusBar"),
 				ViewHelpers.createResizableIcon(
 						new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "statusbar.png"))));
@@ -201,7 +184,6 @@ public class AppView extends JRibbonFrame {
 		cbtnStatusBar.setActionKeyTip("S");
 		cbtnStatusBar.getActionModel().setSelected(true);
 		viewBand.addCommandButton(cbtnStatusBar, RibbonElementPriority.TOP);
-
 		JCommandButton cbtnLookAndFeel = new JCommandButton(I18n.COMMON.getString("Action.LookAndFeel"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "laf.png"))));
 		cbtnLookAndFeel.addActionListener(new ActionListener() {
@@ -212,7 +194,6 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnLookAndFeel.setActionKeyTip("T");
 		viewBand.addCommandButton(cbtnLookAndFeel, RibbonElementPriority.TOP);
-
 		return viewBand;
 	}
 
@@ -220,7 +201,6 @@ public class AppView extends JRibbonFrame {
 		JRibbonBand extrasBand = new JRibbonBand(I18n.COMMON.getString("AppView.ExtrasBand"),
 				new EmptyResizableIcon(22));
 		extrasBand.setResizePolicies(CoreRibbonResizePolicies.getCorePoliciesRestrictive(extrasBand));
-
 		JCommandButton cbtnSettings = new JCommandButton(I18n.COMMON.getString("Action.Settings"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "settings.png"))));
 		cbtnSettings.addActionListener(new ActionListener() {
@@ -231,14 +211,12 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnSettings.setActionKeyTip("E");
 		extrasBand.addCommandButton(cbtnSettings, RibbonElementPriority.TOP);
-
 		return extrasBand;
 	}
 
 	private JRibbonBand getHelpBand() {
 		JRibbonBand helpBand = new JRibbonBand(I18n.COMMON.getString("AppView.HelpBand"), new EmptyResizableIcon(22));
 		helpBand.setResizePolicies(CoreRibbonResizePolicies.getCorePoliciesRestrictive(helpBand));
-
 		JCommandButton cbtnHelp = new JCommandButton(I18n.COMMON.getString("AppView.Help"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "help.png"))));
 		cbtnHelp.addActionListener(new ActionListener() {
@@ -249,7 +227,6 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnHelp.setActionKeyTip("H");
 		helpBand.addCommandButton(cbtnHelp, RibbonElementPriority.TOP);
-
 		JCommandButton cbtnAbout = new JCommandButton(I18n.COMMON.getString("AppView.Help.About"), ViewHelpers
 				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "about.png"))));
 		cbtnAbout.addActionListener(new ActionListener() {
@@ -260,14 +237,12 @@ public class AppView extends JRibbonFrame {
 		});
 		cbtnAbout.setActionKeyTip("A");
 		helpBand.addCommandButton(cbtnAbout, RibbonElementPriority.TOP);
-
 		return helpBand;
 	}
 
 	private JXStatusBar buildStatusBar() {
 		xstatusBar = new JXStatusBar();
 		xstatusBar.setPreferredSize(new Dimension(15, 20));
-
 		JLabel lblUser = new JLabel();
 		lblUser.setText(I18n.COMMON.getString("AppView.StatusBar.User") + " : " + System.getProperty("user.name"));
 		xstatusBar.add(lblUser, new JXStatusBar.Constraint(400));
@@ -275,10 +250,8 @@ public class AppView extends JRibbonFrame {
 		dateFormat.applyPattern("EEEE', 'dd. MMMM yyyy");
 		JLabel lblDate = new JLabel(" " + dateFormat.format(new Date()).toString());
 		xstatusBar.add(lblDate, new JXStatusBar.Constraint(400));
-
 		JLabel lblVersion = new JLabel(" " + I18n.OPTIMIZED.getString("App.Version"));
 		xstatusBar.add(lblVersion, new JXStatusBar.Constraint(300));
-
 		return xstatusBar;
 	}
 
@@ -317,7 +290,7 @@ public class AppView extends JRibbonFrame {
 		MessageBox.showInfo("Settings not implemented yet!");
 	}
 
-	public void addPageToCenter(View page) {
+	private void addPageToCenter(View page) {
 		centerPanel.removeAll();
 		centerPanel.add(page.asComponent());
 		centerPanel.revalidate();

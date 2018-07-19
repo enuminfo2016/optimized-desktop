@@ -3,8 +3,7 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import com.enuminfo.optimized.frontend.form.ProductForm;
@@ -35,8 +34,7 @@ public class ProductController extends AbstractDataPageController<Product> {
 		if (filter.equals(""))
 			return getService().getListWithNamedQuery(start, end);
 		else
-			return getService().getListWithNamedQueryAndParameters(with("code", "%" + filter + "%").parameters(), start,
-					end);
+			return new ArrayList<>();
 	}
 
 	@Override
@@ -44,8 +42,7 @@ public class ProductController extends AbstractDataPageController<Product> {
 		if (filter.equals(""))
 			return getService().getListWithNamedQuery().size();
 		else
-			return getService().getListWithNamedQueryAndParameters(with("code", "%" + filter + "%").parameters())
-					.size();
+			return 0;
 	}
 
 	@Override

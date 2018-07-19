@@ -1,102 +1,134 @@
-CREATE TABLE PUBLIC.T_COUNTRY (
-	ID INTEGER NOT NULL IDENTITY,
-	NAME VARCHAR(50) NOT NULL,
-	ISD VARCHAR(20) NOT NULL,
-	PRIMARY KEY (ID)
+﻿create table t_country (
+    id serial primary key, 
+    name varchar(50), 
+    isd varchar(20)
 );
 
-CREATE TABLE PUBLIC.T_LOCATION (
-	ID INTEGER NOT NULL IDENTITY,
-	NAME VARCHAR(50) NOT NULL,
-	PIN BIGINT NOT NULL,
-	CITY VARCHAR(50) NOT NULL,
-	STATE VARCHAR(50) NOT NULL,
-	COUNTRY INTEGER NOT NULL REFERENCES T_COUNTRY(ID),
-	PRIMARY KEY (ID)
+create table t_location (
+    id serial primary key, 
+    name varchar(50), 
+    pin integer, 
+    city varchar(50), 
+    state varchar(50),
+    country integer,
+    constraint location_country_fkey foreign key (country)
+	      references t_country (id) match simple
+	      on update no action on delete no action
 );
 
-CREATE TABLE PUBLIC.T_CATEGORY (
-	ID INTEGER NOT NULL IDENTITY,
-	NAME VARCHAR(50) NOT NULL,
-	PRIMARY KEY (ID)
+create table t_category (
+    id serial primary key, 
+    name varchar(50)
 );
 
-CREATE TABLE PUBLIC.T_PRODUCT (
-	ID INTEGER NOT NULL IDENTITY,
-	SKU_CODE VARCHAR(50) NOT NULL,
-	NAME VARCHAR(50) NOT NULL, 
-	CATEGORY INTEGER NOT NULL REFERENCES T_CATEGORY(ID),
-	PRIMARY KEY (ID)
+create table t_product (
+    id serial primary key,  
+    name varchar(50),
+    sku_code varchar(25),
+    category integer,
+    constraint product_category_fkey foreign key (category)
+	      references t_category (id) match simple
+	      on update no action on delete no action
 );
 
-CREATE TABLE PUBLIC.T_BANK (
-	ID INTEGER NOT NULL IDENTITY, 
-	NAME VARCHAR(50) NOT NULL, 
-	IFSC VARCHAR(20) NOT NULL, 
-	MICR VARCHAR(20) NOT NULL, 
-	BRANCH VARCHAR(20) NOT NULL, 
-	ADDRESS VARCHAR(500) NOT NULL, 
-	CONTACT BIGINT NOT NULL,
-	PRIMARY KEY (ID)
+create table t_address (
+    id serial primary key,
+    value1 varchar(100),
+    value2 varchar(100),
+    value3 varchar(100),
+    location integer,
+    constraint address_location_fkey foreign key (location)
+	      references t_location (id) match simple
+	      on update no action on delete no action
 );
 
-CREATE TABLE PUBLIC.T_VENDOR (
-	ID INTEGER NOT NULL IDENTITY, 
-	COMPANY_NAME VARCHAR(100) NOT NULL, 
-	COMPANY_ADDRESS VARCHAR(500) NOT NULL,
-	COMPANY_PHONE BIGINT NOT NULL, 
-	COMPANY_FAX BIGINT NOT NULL, 
-	COMPANY_WEB_SITE VARCHAR(50) NOT NULL, 
-	COMPANY_EMAIL VARCHAR(50) NOT NULL, 
-	PERSON_NAME VARCHAR(50) NOT NULL, 
-	PERSON_FAX BIGINT NOT NULL, 
-	PERSON_MOBILE BIGINT NOT NULL, 
-	PERSON_EMAIL VARCHAR(50) NOT NULL, 
-	PERSON_DESIGNATION VARCHAR(50) NOT NULL, 
-	ADDRESS_WORKS VARCHAR(500) NOT NULL, 
-	TYPE_OWNERSHIP VARCHAR(50) NOT NULL, 
-	COMPANY_NSIC VARCHAR(50) NOT NULL, 
-	COMPANY_MSME VARCHAR(50) NOT NULL, 
-	NATURE_BUSINESS VARCHAR(50) NOT NULL, 
-	COMPANY_BANK INTEGER NOT NULL REFERENCES T_BANK(ID), 
-	COMPANY_BANK_ACCOUNT VARCHAR(50) NOT NULL,
-	PRIMARY KEY (ID)
+create table t_bank (
+    id serial primary key, 
+    name varchar(50),
+    ifsc varchar(20),
+    micr varchar(20),
+    branch varchar(20),
+    address integer,
+    constraint bank_address_fkey foreign key (address)
+	      references t_address (id) match simple
+	      on update no action on delete no action,
+    contact integer
 );
 
-CREATE TABLE T_CUSTOMER (
-	ID INTEGER NOT NULL IDENTITY, 
-	COMPANY_NAME VARCHAR(100) NOT NULL, 
-	COMPANY_ADDRESS VARCHAR(500) NOT NULL,
-	COMPANY_PHONE BIGINT NOT NULL, 
-	COMPANY_FAX BIGINT NOT NULL, 
-	COMPANY_WEB_SITE VARCHAR(50) NOT NULL, 
-	COMPANY_EMAIL VARCHAR(50) NOT NULL, 
-	PERSON_NAME VARCHAR(50) NOT NULL, 
-	PERSON_FAX BIGINT NOT NULL, 
-	PERSON_MOBILE BIGINT NOT NULL, 
-	PERSON_EMAIL VARCHAR(50) NOT NULL, 
-	PERSON_DESIGNATION VARCHAR(50) NOT NULL, 
-	ADDRESS_WORKS VARCHAR(500) NOT NULL, 
-	TYPE_OWNERSHIP VARCHAR(50) NOT NULL, 
-	COMPANY_NSIC VARCHAR(50) NOT NULL, 
-	COMPANY_MSME VARCHAR(50) NOT NULL, 
-	NATURE_BUSINESS VARCHAR(50) NOT NULL, 
-	COMPANY_BANK INTEGER NOT NULL REFERENCES T_BANK(ID), 
-	COMPANY_BANK_ACCOUNT VARCHAR(50) NOT NULL,
-	PRIMARY KEY (ID)
+create table t_vendor_detail (
+    id serial primary key, 
+    company_name varchar(100),
+    company_address integer,
+    constraint vendor_company_address_fkey foreign key (company_address)
+	      references t_address (id) match simple
+	      on update no action on delete no action,
+    company_contact varchar(50),
+    company_fax varchar(50),
+    company_web_site varchar(50),
+    company_email varchar(50),
+    person_name varchar(50),
+    person_fax varchar(50),
+    person_mobile varchar(50),
+    person_email varchar(50),
+    person_designation varchar(50),
+    address_works varchar(500),
+    type_ownership varchar(50),
+    company_nsic varchar(50),
+    company_msme varchar(50),
+    nature_business varchar(50),
+    company_bank integer,
+    constraint vendor_company_bank_fkey foreign key (company_bank)
+	      references t_bank (id) match simple
+	      on update no action on delete no action,
+    company_bank_account varchar(50)
 );
 
-CREATE TABLE PUBLIC.T_SALE_ORDER (
-	ID INTEGER NOT NULL IDENTITY,
-	CUSTOMER INTEGER NOT NULL REFERENCES T_CUSTOMER(ID),
-	PRIMARY KEY (ID)
+create table t_customer_detail (
+    id serial primary key, 
+    company_name varchar(100),
+    company_address integer,
+    constraint customer_company_address_fkey foreign key (company_address)
+	      references t_address (id) match simple
+	      on update no action on delete no action,
+    company_contact varchar(50),
+    company_fax varchar(50),
+    company_web_site varchar(50),
+    company_email varchar(50),
+    person_name varchar(50),
+    person_fax varchar(50),
+    person_mobile varchar(50),
+    person_email varchar(50),
+    person_designation varchar(50),
+    address_works varchar(500),
+    type_ownership varchar(50),
+    company_nsic varchar(50),
+    company_msme varchar(50),
+    nature_business varchar(50),
+    company_bank integer,
+    constraint customer_company_bank_fkey foreign key (company_bank)
+	      references t_bank (id) match simple
+	      on update no action on delete no action,
+    company_bank_account varchar(50)
 );
 
-CREATE TABLE PUBLIC.T_ORDER_LINE (
-	ID INTEGER NOT NULL IDENTITY,
-	PRODUCT INTEGER NOT NULL REFERENCES T_PRODUCT(ID),
-	QUANTITY DECIMAL NOT NULL, 
-	UNIT_PRICE DECIMAL NOT NULL,
-	SALE_ORDER INTEGER NOT NULL REFERENCES T_SALE_ORDER(ID),
-	PRIMARY KEY (ID)
+create table t_sale_order (
+    id serial primary key,
+    customer integer,
+    constraint customer_sale_order_fkey foreign key (customer)
+	      references t_customer_detail (id) match simple
+	      on update no action on delete no action
+);
+
+create table t_order_line (
+    id serial primary key,
+    product integer,
+    constraint line_product_fkey foreign key (product)
+	      references t_product (id) match simple
+	      on update no action on delete no action,
+    quantity decimal, 
+    unit_price decimal,
+    sale_order integer,
+    constraint line_sale_order_fkey foreign key (sale_order)
+	      references t_sale_order (id) match simple
+	      on update no action on delete no action
 );

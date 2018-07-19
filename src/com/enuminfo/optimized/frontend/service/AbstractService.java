@@ -24,12 +24,6 @@ public abstract class AbstractService<T extends Base> {
 		return modelClass;
 	}
 
-	public abstract Object getRepository();
-
-	public abstract String getNamedQuery();
-
-	public abstract String getNamedQueryWithFilter();
-
 	public abstract void add(T model);
 
 	public abstract void edit(T model);

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.enuminfo.optimized.backend.entity.OrderLineEntity;
-import com.enuminfo.optimized.backend.repository.OrderLineRepository;
 import com.enuminfo.optimized.frontend.component.ComboBoxItem;
 import com.enuminfo.optimized.frontend.model.OrderLine;
 
@@ -19,21 +17,6 @@ public class OrderLineService extends AbstractService<OrderLine> {
 
 	public OrderLineService() {
 		super(OrderLine.class);
-	}
-
-	@Override
-	public Object getRepository() {
-		return new OrderLineRepository();
-	}
-
-	@Override
-	public String getNamedQuery() {
-		return OrderLineEntity.FIND_ALL;
-	}
-
-	@Override
-	public String getNamedQueryWithFilter() {
-		return null;
 	}
 
 	@Override

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.enuminfo.optimized.backend.entity.BankEntity;
-import com.enuminfo.optimized.backend.repository.BankRepository;
 import com.enuminfo.optimized.frontend.component.ComboBoxItem;
 import com.enuminfo.optimized.frontend.model.Bank;
 
@@ -19,21 +17,6 @@ public class BankService extends AbstractService<Bank> {
 
 	public BankService() {
 		super(Bank.class);
-	}
-
-	@Override
-	public Object getRepository() {
-		return new BankRepository();
-	}
-
-	@Override
-	public String getNamedQuery() {
-		return BankEntity.FIND_ALL;
-	}
-
-	@Override
-	public String getNamedQueryWithFilter() {
-		return BankEntity.FIND_BY_NAME;
 	}
 
 	@Override

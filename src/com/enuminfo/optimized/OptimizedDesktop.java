@@ -4,13 +4,12 @@
 package com.enuminfo.optimized;
 
 import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.SwingUtilities;
 
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
+import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.component.Splash;
 import com.enuminfo.optimized.frontend.contoller.AppController;
 
@@ -18,8 +17,6 @@ import com.enuminfo.optimized.frontend.contoller.AppController;
  * @author Kumar
  */
 public class OptimizedDesktop extends AppController {
-
-	private final static Logger LOGGER = Logger.getLogger(OptimizedDesktop.class.getName());
 
 	public static Splash splash;
 
@@ -34,8 +31,8 @@ public class OptimizedDesktop extends AppController {
 		splash.setVisible(true);
 		try {
 			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-			LOGGER.log(Level.SEVERE, null, ex);
+		} catch (InterruptedException e) {
+			MessageBox.showError(e.getMessage(), e);
 		}
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override

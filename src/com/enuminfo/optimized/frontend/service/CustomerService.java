@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.enuminfo.optimized.backend.entity.CustomerEntity;
-import com.enuminfo.optimized.backend.repository.CustomerRepository;
 import com.enuminfo.optimized.frontend.component.ComboBoxItem;
 import com.enuminfo.optimized.frontend.model.Customer;
 
@@ -19,21 +17,6 @@ public class CustomerService extends AbstractService<Customer> {
 
 	public CustomerService() {
 		super(Customer.class);
-	}
-
-	@Override
-	public Object getRepository() {
-		return new CustomerRepository();
-	}
-
-	@Override
-	public String getNamedQuery() {
-		return CustomerEntity.FIND_ALL;
-	}
-
-	@Override
-	public String getNamedQueryWithFilter() {
-		return CustomerEntity.FIND_BY_NAME;
 	}
 
 	@Override

@@ -3,8 +3,7 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.SQLException;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -16,8 +15,10 @@ import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.api.SubstanceConstants.TabContentPaneBorderKind;
 import org.jvnet.substance.skin.SubstanceOfficeBlue2007LookAndFeel;
 
-import com.enuminfo.optimized.backend.JpaUtil;
+import com.enuminfo.optimized.backend.AbstractConnectionPool;
+import com.enuminfo.optimized.backend.PostgresConnectionPool;
 import com.enuminfo.optimized.frontend.I18n;
+import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.component.Splash;
 import com.enuminfo.optimized.frontend.view.AppView;
 
@@ -25,8 +26,6 @@ import com.enuminfo.optimized.frontend.view.AppView;
  * @author Kumar
  */
 public abstract class AppController {
-
-	private final static Logger LOGGER = Logger.getLogger(AppController.class.getName());
 
 	protected static AppController controller;
 	protected AppView view;
@@ -39,21 +38,22 @@ public abstract class AppController {
 	public void start() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JDialog.setDefaultLookAndFeelDecorated(true);
-
 		try {
 			UIManager.setLookAndFeel(new SubstanceOfficeBlue2007LookAndFeel());
-		} catch (UnsupportedLookAndFeelException ex) {
-			LOGGER.log(Level.SEVERE, "Substance Look and Feel Error", ex);
+		} catch (UnsupportedLookAndFeelException e) {
+			MessageBox.showError("Substance Look and Feel Error", e);
 		}
-
 		UIManager.put(SubstanceLookAndFeel.TABBED_PANE_CONTENT_BORDER_KIND, TabContentPaneBorderKind.DOUBLE_PLACEMENT);
 		UIManager.put(LafWidget.TEXT_EDIT_CONTEXT_MENU, true);
-
+		try {
+			AbstractConnectionPool.setInstance(new PostgresConnectionPool());
+		} catch (SQLException e) {
+			MessageBox.showError("MySQL Error", e);
+		}
 		if (splash != null) {
 			splash.setVisible(false);
 			splash.dispose();
 		}
-
 		view = new AppView(I18n.OPTIMIZED.getString("App.Title"));
 		view.setVisible(true);
 	}
@@ -71,7 +71,7 @@ public abstract class AppController {
 	}
 
 	public void exit() {
-		JpaUtil.closeEntityManagerFactory();
+		AbstractConnectionPool.getInstance().closeAllConnections();
 		System.exit(0);
 	}
 }
