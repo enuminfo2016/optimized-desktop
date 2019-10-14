@@ -93,7 +93,7 @@ public class AboutDialog extends JDialog {
 		JLabel lblAppName = new JLabel(
 				I18n.OPTIMIZED.getString("App.Title") + " " + I18n.OPTIMIZED.getString("App.Version"));
 		JLabel lblCopyright = new JLabel(I18n.OPTIMIZED.getString("App.Copyright"));
-		JLabel lblCopyrightLink = new JLabel("BY Sivakumar AKURATI");
+		JLabel lblCopyrightLink = new JLabel("By Sivakumar AKURATI");
 
 		JLabel lblDetails = new JLabel(I18n.OPTIMIZED.getString("App.Details"));
 		JXHyperlink xlinkBlog = new JXHyperlink(acBlog);

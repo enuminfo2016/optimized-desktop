@@ -20,10 +20,6 @@ public class OptimizedDesktop extends AppController {
 
 	public static Splash splash;
 
-	public OptimizedDesktop() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public static void main(String[] args) {
 		Locale.setDefault(new Locale("en", "US"));
 		splash = new Splash(I18n.OPTIMIZED.getString("App.Title"), ViewHelpers.ICONS16 + "app.png",

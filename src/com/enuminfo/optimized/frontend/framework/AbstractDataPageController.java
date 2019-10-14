@@ -16,10 +16,6 @@ public abstract class AbstractDataPageController<T extends Base> implements Data
 	private AbstractService<T> service;
 	private DataPageView<T> dataPageView;
 
-	public AbstractDataPageController() {
-		// TODO Auto-generated constructor stub
-	}
-
 	protected abstract AbstractService<T> createService();
 
 	@Override

@@ -17,10 +17,6 @@ public class ComboBoxItem implements Serializable {
 	private String key;
 	private String value;
 
-	public ComboBoxItem() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public ComboBoxItem(String key, String value) {
 		this.key = key;
 		this.value = value;

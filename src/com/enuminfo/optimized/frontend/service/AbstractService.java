@@ -32,9 +32,9 @@ public abstract class AbstractService<T extends Base> {
 
 	public abstract List<T> getListWithNamedQuery();
 
-	public abstract List<T> getListWithNamedQueryAndParameters(Map<String, Object> parameters);
+	public abstract List<T> getListWithNamedQuery(Map<String, Object> parameters);
 
-	public abstract List<T> getListWithNamedQueryAndParameters(Map<String, Object> parameters, int start, int end);
+	public abstract List<T> getListWithNamedQuery(Map<String, Object> parameters, int start, int end);
 
 	public abstract List<T> getListWithNamedQuery(int start, int end);
 

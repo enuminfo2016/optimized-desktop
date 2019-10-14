@@ -35,10 +35,10 @@ import com.enuminfo.optimized.frontend.component.AboutDialog;
 import com.enuminfo.optimized.frontend.component.LookAndFeelDialog;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.contoller.AppController;
-import com.enuminfo.optimized.frontend.contoller.CustomerController;
+import com.enuminfo.optimized.frontend.contoller.BankController;
+import com.enuminfo.optimized.frontend.contoller.CountryController;
 import com.enuminfo.optimized.frontend.contoller.DashboardController;
-import com.enuminfo.optimized.frontend.contoller.ProductController;
-import com.enuminfo.optimized.frontend.contoller.SaleOrderController;
+import com.enuminfo.optimized.frontend.contoller.LocationController;
 import com.enuminfo.optimized.frontend.framework.View;
 
 /**
@@ -94,7 +94,7 @@ public class AppView extends JRibbonFrame {
 	}
 
 	private void configureRibbonMenu() {
-		RibbonTask fileTask = new RibbonTask(I18n.COMMON.getString("AppView.File"), getActionsBand());
+		RibbonTask fileTask = new RibbonTask(I18n.COMMON.getString("AppView.File"), getActionsBand(), getReferencesBand());
 		fileTask.setKeyTip("F");
 		RibbonTask helpTask = new RibbonTask(I18n.COMMON.getString("AppView.Window"), getViewBand(), getExtrasBand(),
 				getHelpBand());
@@ -131,42 +131,52 @@ public class AppView extends JRibbonFrame {
 		cbtnDashboard.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				onOpenDashboard();
+				DashboardController controller = new DashboardController();
+				addPageToCenter(controller.getPageView());
 			}
 		});
 		cbtnDashboard.setActionKeyTip("D");
-		actionsBand.addCommandButton(cbtnDashboard, RibbonElementPriority.TOP);
-		JCommandButton cbtnCustomers = new JCommandButton(I18n.OPTIMIZED.getString("Action.Customers"), ViewHelpers
-				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "customer.png"))));
-		cbtnCustomers.addActionListener(new ActionListener() {
+		actionsBand.addCommandButton(cbtnDashboard, RibbonElementPriority.TOP);		
+		return actionsBand;
+	}
+	
+	private JRibbonBand getReferencesBand() {
+		JRibbonBand actionsBand = new JRibbonBand(I18n.COMMON.getString("AppView.ReferencesBand"),
+				new EmptyResizableIcon(22));
+		actionsBand.setResizePolicies(CoreRibbonResizePolicies.getCorePoliciesRestrictive(actionsBand));
+		JCommandButton cbtnCountries = new JCommandButton(I18n.OPTIMIZED.getString("Action.Countries"), ViewHelpers
+				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "country.png"))));
+		cbtnCountries.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				onOpenCustomers();
-			}
-		});
-		cbtnCustomers.setActionKeyTip("C");
-		actionsBand.addCommandButton(cbtnCustomers, RibbonElementPriority.TOP);
-		JCommandButton cbtnProducts = new JCommandButton(I18n.OPTIMIZED.getString("Action.Products"), ViewHelpers
-				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
-		cbtnProducts.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				onOpenProducts();
-			}
-		});
-		cbtnProducts.setActionKeyTip("A");
-		actionsBand.addCommandButton(cbtnProducts, RibbonElementPriority.TOP);
-		JCommandButton cbtnOrders = new JCommandButton(I18n.OPTIMIZED.getString("Action.Orders"), ViewHelpers
-				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
-		cbtnOrders.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				SaleOrderController controller = new SaleOrderController();
+				CountryController controller = new CountryController();
 				addPageToCenter(controller.getDataPageView());
 			}
 		});
-		cbtnOrders.setActionKeyTip("O");
-		actionsBand.addCommandButton(cbtnOrders, RibbonElementPriority.TOP);
+		cbtnCountries.setActionKeyTip("C");
+		actionsBand.addCommandButton(cbtnCountries, RibbonElementPriority.TOP);
+		JCommandButton cbtnLocations = new JCommandButton(I18n.OPTIMIZED.getString("Action.Locations"), ViewHelpers
+				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "country.png"))));
+		cbtnLocations.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LocationController controller = new LocationController();
+				addPageToCenter(controller.getDataPageView());
+			}
+		});
+		cbtnLocations.setActionKeyTip("L");
+		actionsBand.addCommandButton(cbtnLocations, RibbonElementPriority.TOP);
+		JCommandButton cbtnBanks = new JCommandButton(I18n.OPTIMIZED.getString("Action.Banks"), ViewHelpers
+				.createResizableIcon(new ImageIcon(getClass().getResource(ViewHelpers.ICONS22 + "category.png"))));
+		cbtnBanks.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BankController controller = new BankController();
+				addPageToCenter(controller.getDataPageView());
+			}
+		});
+		cbtnBanks.setActionKeyTip("B");
+		actionsBand.addCommandButton(cbtnBanks, RibbonElementPriority.TOP);
 		return actionsBand;
 	}
 
@@ -253,21 +263,6 @@ public class AppView extends JRibbonFrame {
 		JLabel lblVersion = new JLabel(" " + I18n.OPTIMIZED.getString("App.Version"));
 		xstatusBar.add(lblVersion, new JXStatusBar.Constraint(300));
 		return xstatusBar;
-	}
-
-	public void onOpenDashboard() {
-		DashboardController controller = new DashboardController();
-		addPageToCenter(controller.getPageView());
-	}
-
-	public void onOpenCustomers() {
-		CustomerController controller = new CustomerController();
-		addPageToCenter(controller.getDataPageView());
-	}
-
-	public void onOpenProducts() {
-		ProductController controller = new ProductController();
-		addPageToCenter(controller.getDataPageView());
 	}
 
 	public void onHelp() {

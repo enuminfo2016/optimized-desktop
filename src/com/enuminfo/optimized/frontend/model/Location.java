@@ -4,7 +4,7 @@
 package com.enuminfo.optimized.frontend.model;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class Location extends Base {
 
@@ -17,8 +17,7 @@ public class Location extends Base {
 	private String city;
 	private String state;
 	private String country;
-	private boolean status;
-
+	
 	public Location() {
 		// TODO Auto-generated constructor stub
 	}
@@ -61,13 +60,5 @@ public class Location extends Base {
 
 	public void setCountry(String country) {
 		this.country = country;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 }

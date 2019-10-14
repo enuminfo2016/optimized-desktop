@@ -10,10 +10,6 @@ public abstract class AbstractPageController implements PageController {
 
 	private PageView pageView;
 
-	public AbstractPageController() {
-		// TODO Auto-generated constructor stub
-	}
-
 	protected abstract PageView createPageView();
 
 	@Override

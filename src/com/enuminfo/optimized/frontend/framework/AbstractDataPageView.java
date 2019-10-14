@@ -75,10 +75,6 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 
 	protected String searchFilter = "";
 
-	public AbstractDataPageView() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public void init(DataPageController<T> controller) {
 		this.controller = controller;
@@ -194,6 +190,7 @@ public abstract class AbstractDataPageView<T extends Base> implements DataPageVi
 		tbPager.add(ViewHelpers.createToolButton(acPreviousPage, false, false));
 		tbPager.add(new JLabel(" "));
 		tbPager.add(lblCurrentPage);
+		tbPager.add(new JLabel(" "));
 		tbPager.add(lblFrom);
 		tbPager.add(lblPageCount);
 		tbPager.add(new JLabel(" "));

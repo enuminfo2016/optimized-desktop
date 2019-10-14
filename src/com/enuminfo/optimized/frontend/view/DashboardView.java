@@ -5,26 +5,18 @@ package com.enuminfo.optimized.frontend.view;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.jdesktop.swingx.JXHyperlink;
 import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.painter.decoration.DecorationAreaType;
 
 import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.contoller.AppController;
-import com.enuminfo.optimized.frontend.contoller.DashboardController;
 import com.enuminfo.optimized.frontend.framework.PageController;
 import com.enuminfo.optimized.frontend.framework.PageView;
 
@@ -37,10 +29,6 @@ public class DashboardView implements PageView {
 
 	private JPanel pageView;
 	private PageController controller;
-
-	public DashboardView() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public String getTitle() {
@@ -69,54 +57,9 @@ public class DashboardView implements PageView {
 		pageView.add(getCenterPanel(), BorderLayout.CENTER);
 	}
 
-	@SuppressWarnings("serial")
 	private Component getCenterPanel() {
 		JPanel centerPanel = new JPanel(new MigLayout("insets 200 200 200 200"));
-
-		int productsCount = ((DashboardController) getController()).getProductsCount();
-		int customersCount = ((DashboardController) getController()).getCustomersCount();
-
-		JPanel productItem = createItemPanel(ViewHelpers.IMAGES + "category.png",
-				I18n.OPTIMIZED.getString("Dashboard.Home.LinkProducts") + " (" + productsCount + ")",
-				new AbstractAction() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						AppController.get().getView().onOpenProducts();
-					}
-				});
-
-		JPanel customerItem = createItemPanel(ViewHelpers.IMAGES + "customer.png",
-				I18n.OPTIMIZED.getString("Dashboard.Home.LinkCustomers") + " (" + customersCount + ")",
-				new AbstractAction() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						AppController.get().getView().onOpenCustomers();
-					}
-				});
-
-		centerPanel.add(productItem, "gapright 70");
-		centerPanel.add(customerItem, "gapright 70");
 		return centerPanel;
-	}
-
-	private JPanel createItemPanel(String iconPath, String title, final AbstractAction openAction) {
-		JPanel itemPanel = new JPanel(new BorderLayout());
-
-		JLabel lblItem = new JLabel(new ImageIcon(getClass().getResource(iconPath)));
-		lblItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		lblItem.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent me) {
-				openAction.actionPerformed(null);
-			}
-		});
-
-		JXHyperlink link = new JXHyperlink(openAction);
-		link.setText(title);
-
-		itemPanel.add(lblItem, BorderLayout.NORTH);
-		itemPanel.add(link, BorderLayout.SOUTH);
-		return itemPanel;
 	}
 
 	private Component getHeaderBar() {

@@ -4,7 +4,7 @@
 package com.enuminfo.optimized.frontend.model;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class Bank extends Base {
 
@@ -16,9 +16,9 @@ public class Bank extends Base {
 	private String ifsc;
 	private String micr;
 	private String branch;
-	private String contact;
 	private String address;
-
+	private long contact;
+	
 	public Bank() {
 		// TODO Auto-generated constructor stub
 	}
@@ -55,19 +55,19 @@ public class Bank extends Base {
 		this.branch = branch;
 	}
 
-	public String getContact() {
-		return contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-
 	public String getAddress() {
 		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public long getContact() {
+		return contact;
+	}
+
+	public void setContact(long contact) {
+		this.contact = contact;
 	}
 }
