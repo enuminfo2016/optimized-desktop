@@ -10,7 +10,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class TextFieldExt extends JTextField {
 

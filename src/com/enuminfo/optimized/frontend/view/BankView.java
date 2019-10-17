@@ -3,15 +3,15 @@
  */
 package com.enuminfo.optimized.frontend.view;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.framework.AbstractDataPageView;
-import com.enuminfo.optimized.frontend.framework.AbstractPreviewPanel;
-import com.enuminfo.optimized.frontend.framework.EntityTableColumn;
-import com.enuminfo.optimized.frontend.model.Bank;
+import com.enuminfo.optimized.backend.model.Bank;
+import com.enuminfo.optimized.framework.AbstractDataPageView;
+import com.enuminfo.optimized.framework.AbstractPreviewPanel;
+import com.enuminfo.optimized.framework.EntityTableColumn;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class BankView extends AbstractDataPageView<Bank> {
 

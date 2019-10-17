@@ -3,15 +3,15 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import static com.enuminfo.optimized.frontend.service.QueryParameter.with;
+import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
 
 import java.util.List;
 
-import com.enuminfo.optimized.frontend.framework.AbstractDataPageController;
-import com.enuminfo.optimized.frontend.framework.DataPageView;
-import com.enuminfo.optimized.frontend.model.Country;
-import com.enuminfo.optimized.frontend.service.AbstractService;
-import com.enuminfo.optimized.frontend.service.CountryService;
+import com.enuminfo.optimized.backend.model.Country;
+import com.enuminfo.optimized.backend.repository.AbstractRepository;
+import com.enuminfo.optimized.backend.repository.CountryRepository;
+import com.enuminfo.optimized.framework.AbstractDataPageController;
+import com.enuminfo.optimized.framework.DataPageView;
 import com.enuminfo.optimized.frontend.view.CountryView;
 
 /**
@@ -32,18 +32,18 @@ public class CountryController extends AbstractDataPageController<Country> {
 	@Override
 	public List<Country> getData(String filter, int start, int end) {
 		if (filter.equals("")) {
-            return getService().getListWithNamedQuery(start, end);
+            return getRepository().findAllWithPaging(start, end);
         } else {
-            return getService().getListWithNamedQuery(with("name", "%" + filter + "%").parameters(), start, end);
+            return getRepository().findByColumnWithPaging(with("name", "%" + filter + "%").parameters(), start, end);
         }
 	}
 
 	@Override
 	public int getDataSize(String filter) {
 		if (filter.equals("")) {
-            return getService().getListWithNamedQuery().size();
+            return getRepository().findAll().size();
         } else {
-            return getService().getListWithNamedQuery(with("code", "%" + filter + "%").parameters()).size();
+            return getRepository().findByColumn(with("code", "%" + filter + "%").parameters()).size();
         }
 	}
 
@@ -53,8 +53,8 @@ public class CountryController extends AbstractDataPageController<Country> {
 	}
 
 	@Override
-	protected AbstractService<Country> createService() {
-		return new CountryService();
+	protected AbstractRepository<Country> createRepository() {
+		return new CountryRepository();
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.contoller;
+package com.enuminfo.optimized.frontend;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -19,13 +19,12 @@ import org.jvnet.substance.skin.SubstanceModerateLookAndFeel;
 import com.enuminfo.optimized.backend.thread.BankExcelThread;
 import com.enuminfo.optimized.backend.thread.CountryExcelThread;
 import com.enuminfo.optimized.backend.thread.LocationExcelThread;
-import com.enuminfo.optimized.frontend.I18n;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.component.Splash;
-import com.enuminfo.optimized.frontend.view.AppView;
+import com.enuminfo.optimized.uitl.I18n;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class AppController {

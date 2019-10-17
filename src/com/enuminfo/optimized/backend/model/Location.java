@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.enuminfo.optimized.frontend.model;
+package com.enuminfo.optimized.backend.model;
 
 /**
  * @author AKURATI

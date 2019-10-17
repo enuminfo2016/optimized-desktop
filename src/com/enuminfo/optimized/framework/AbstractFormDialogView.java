@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -12,22 +12,27 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
 import org.jdesktop.swingx.JXStatusBar;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.model.Base;
+import com.enuminfo.optimized.backend.model.Base;
+import com.enuminfo.optimized.frontend.AppController;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
-public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
+public abstract class AbstractFormDialogView<T extends Base> extends JDialog {
 
 	/**
 	 * 
@@ -46,17 +51,23 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 	protected Action acClose;
 	protected Action acHelp;
 
-	public AbstractFormPanelView(DataPageController<T> controller) {
+	public AbstractFormDialogView(JFrame parent, DataPageController<T> controller) {
+		super(parent);
 		this.controller = controller;
 	}
 
 	public void initComponents() {
 		setLayout(new BorderLayout());
+		setIconImage(new ImageIcon(getClass().getResource(getFormIconPath())).getImage());
+		setTitle(getFormTitle());
 		buildFormActions();
-		add(buildToolBar(), BorderLayout.NORTH);
-		add(buildStatusBar(), BorderLayout.SOUTH);
+		setJMenuBar(buildMenuBar());
+		getContentPane().add(buildToolBar(), BorderLayout.NORTH);
+		getContentPane().add(buildStatusBar(), BorderLayout.SOUTH);
 		if (isMultiPageForm()) {
-
+			tpPages = new JTabbedPane();
+			tpPages.setFocusable(false);
+			getContentPane().add(tpPages, BorderLayout.CENTER);
 		}
 	}
 
@@ -89,7 +100,7 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 		if (isMultiPageForm()) {
 			tpPages.add(title, page);
 		} else {
-			add(page, BorderLayout.CENTER);
+			getContentPane().add(page, BorderLayout.CENTER);
 		}
 	}
 
@@ -111,8 +122,34 @@ public abstract class AbstractFormPanelView<T extends Base> extends JPanel {
 
 	public abstract void onHelp();
 
+	public void showDialog() {
+		buildUI();
+		setLocationRelativeTo(AppController.get().getView());
+		setModalityType(ModalityType.APPLICATION_MODAL);
+		setVisible(true);
+	}
+
 	public void onCloseForm() {
 		setVisible(false);
+		dispose();
+	}
+
+	private JMenuBar buildMenuBar() {
+		menuBar = new JMenuBar();
+		// File menu
+		// JMenu mnuFile = new
+		// JMenu(I18n.COMMON.getString("AbstractFormView.Menu.File"));
+		JMenu mnuFile = new JMenu("");
+		mnuFile.add(acSave);
+		mnuFile.add(new JSeparator());
+		if (isPrintable()) {
+			mnuFile.add(acPrintPreview);
+			mnuFile.add(acPrint);
+			mnuFile.add(new JSeparator());
+		}
+		mnuFile.add(acClose);
+		menuBar.add(mnuFile);
+		return menuBar;
 	}
 
 	private JToolBar buildToolBar() {

@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend;
+package com.enuminfo.optimized.uitl;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -37,15 +37,15 @@ import org.jvnet.substance.utils.SubstanceColorSchemeUtilities;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 @SuppressWarnings("rawtypes")
 public class ViewHelpers {
 
-	public static final String ICONS12 = "/com/enuminfo/optimized/frontend/resources/icons12/";
-	public static final String ICONS16 = "/com/enuminfo/optimized/frontend/resources/icons16/";
-	public static final String ICONS22 = "/com/enuminfo/optimized/frontend/resources/icons22/";
-	public static final String IMAGES = "/com/enuminfo/optimized/frontend/resources/images/";
+	public static final String ICONS12 = "/com/enuminfo/optimized/resources/icons12/";
+	public static final String ICONS16 = "/com/enuminfo/optimized/resources/icons16/";
+	public static final String ICONS22 = "/com/enuminfo/optimized/resources/icons22/";
+	public static final String IMAGES = "/com/enuminfo/optimized/resources/images/";
 
 	public ViewHelpers() {
 		// TODO Auto-generated constructor stub

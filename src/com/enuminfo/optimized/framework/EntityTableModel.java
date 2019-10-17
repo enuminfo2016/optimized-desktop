@@ -1,14 +1,14 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class EntityTableModel extends AbstractTableModel {

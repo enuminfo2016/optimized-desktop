@@ -1,12 +1,12 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.awt.Component;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public interface View {
 

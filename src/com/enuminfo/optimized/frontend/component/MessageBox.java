@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 import org.jdesktop.swingx.JXErrorPane;
 import org.jdesktop.swingx.error.ErrorInfo;
 
-import com.enuminfo.optimized.frontend.I18n;
+import com.enuminfo.optimized.uitl.I18n;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class MessageBox {
 

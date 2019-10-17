@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public abstract class AbstractConnectionPool implements Runnable {
 	

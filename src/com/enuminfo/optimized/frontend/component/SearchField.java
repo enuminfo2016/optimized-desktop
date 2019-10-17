@@ -14,10 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jdesktop.xswingx.PromptSupport;
 
-import com.enuminfo.optimized.frontend.ViewHelpers;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class SearchField extends JPanel implements KeyListener {
 

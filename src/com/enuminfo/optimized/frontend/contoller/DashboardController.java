@@ -3,12 +3,12 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import com.enuminfo.optimized.frontend.framework.AbstractPageController;
-import com.enuminfo.optimized.frontend.framework.PageView;
+import com.enuminfo.optimized.framework.AbstractPageController;
+import com.enuminfo.optimized.framework.PageView;
 import com.enuminfo.optimized.frontend.view.DashboardView;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class DashboardController extends AbstractPageController {
 

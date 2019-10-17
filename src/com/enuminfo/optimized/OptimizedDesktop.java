@@ -7,14 +7,14 @@ import java.util.Locale;
 
 import javax.swing.SwingUtilities;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
+import com.enuminfo.optimized.frontend.AppController;
 import com.enuminfo.optimized.frontend.component.MessageBox;
 import com.enuminfo.optimized.frontend.component.Splash;
-import com.enuminfo.optimized.frontend.contoller.AppController;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class OptimizedDesktop extends AppController {
 

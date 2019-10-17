@@ -3,7 +3,7 @@
  */
 package com.enuminfo.optimized.backend.thread;
 
-import com.enuminfo.optimized.frontend.model.Country;
+import com.enuminfo.optimized.backend.model.Country;
 import com.enuminfo.optimized.uitl.DataUtil;
 
 /**

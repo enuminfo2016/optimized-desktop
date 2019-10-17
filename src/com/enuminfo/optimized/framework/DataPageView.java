@@ -1,12 +1,12 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
-import com.enuminfo.optimized.frontend.model.Base;
+import com.enuminfo.optimized.backend.model.Base;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public interface DataPageView<T extends Base> extends View {
 

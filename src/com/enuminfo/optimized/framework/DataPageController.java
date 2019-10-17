@@ -1,19 +1,19 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.util.List;
 
-import com.enuminfo.optimized.frontend.model.Base;
-import com.enuminfo.optimized.frontend.service.AbstractService;
+import com.enuminfo.optimized.backend.model.Base;
+import com.enuminfo.optimized.backend.repository.AbstractRepository;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public interface DataPageController<T extends Base> extends Controller {
 
-	AbstractService<T> getService();
+	AbstractRepository<T> getRepository();
 
 	DataPageView<T> getDataPageView();
 

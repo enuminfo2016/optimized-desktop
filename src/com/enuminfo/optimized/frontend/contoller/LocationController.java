@@ -3,15 +3,15 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import static com.enuminfo.optimized.frontend.service.QueryParameter.with;
+import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
 
 import java.util.List;
 
-import com.enuminfo.optimized.frontend.framework.AbstractDataPageController;
-import com.enuminfo.optimized.frontend.framework.DataPageView;
-import com.enuminfo.optimized.frontend.model.Location;
-import com.enuminfo.optimized.frontend.service.AbstractService;
-import com.enuminfo.optimized.frontend.service.LocationService;
+import com.enuminfo.optimized.backend.model.Location;
+import com.enuminfo.optimized.backend.repository.AbstractRepository;
+import com.enuminfo.optimized.backend.repository.LocationRepository;
+import com.enuminfo.optimized.framework.AbstractDataPageController;
+import com.enuminfo.optimized.framework.DataPageView;
 import com.enuminfo.optimized.frontend.view.LocationView;
 
 /**
@@ -32,9 +32,9 @@ public class LocationController extends AbstractDataPageController<Location> {
 	@Override
 	public List<Location> getData(String filter, int start, int end) {
 		if (filter.equals("")) {
-            return getService().getListWithNamedQuery(start, end);
+            return getRepository().findAllWithPaging(start, end);
         } else {
-        	return getService().getListWithNamedQuery(with("name", "%" + filter + "%")
+        	return getRepository().findByColumnWithPaging(with("name", "%" + filter + "%")
             		.and("pin", "%" + filter + "%").and("city", "%" + filter + "%")
             		.and("state", "%" + filter + "%").parameters(), start, end);
         }
@@ -43,9 +43,9 @@ public class LocationController extends AbstractDataPageController<Location> {
 	@Override
 	public int getDataSize(String filter) {
 		if (filter.equals("")) {
-            return getService().getListWithNamedQuery().size();
+            return getRepository().findAll().size();
         } else {
-            return getService().getListWithNamedQuery(with("name", "%" + filter + "%")
+            return getRepository().findByColumn(with("name", "%" + filter + "%")
             		.and("pin", "%" + filter + "%").and("city", "%" + filter + "%")
             		.and("state", "%" + filter + "%").parameters()).size();
         }
@@ -57,8 +57,8 @@ public class LocationController extends AbstractDataPageController<Location> {
 	}
 
 	@Override
-	protected AbstractService<Location> createService() {
-		return new LocationService();
+	protected AbstractRepository<Location> createRepository() {
+		return new LocationRepository();
 	}
 
 	@Override

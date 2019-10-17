@@ -1,14 +1,14 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.lang.reflect.Field;
 
 import com.enuminfo.optimized.frontend.component.MessageBox;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 @SuppressWarnings("rawtypes")
 public class EntityTableColumn {

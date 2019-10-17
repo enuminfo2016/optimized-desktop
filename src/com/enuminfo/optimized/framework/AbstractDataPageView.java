@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -31,15 +31,15 @@ import org.jdesktop.swingx.decorator.HighlighterFactory;
 import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.painter.decoration.DecorationAreaType;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
+import com.enuminfo.optimized.backend.model.Base;
 import com.enuminfo.optimized.frontend.component.SearchField;
-import com.enuminfo.optimized.frontend.model.Base;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public abstract class AbstractDataPageView<T extends Base> implements DataPageView<T> {
 

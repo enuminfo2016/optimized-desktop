@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.view;
+package com.enuminfo.optimized.frontend;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -29,20 +29,19 @@ import org.jvnet.flamingo.ribbon.RibbonElementPriority;
 import org.jvnet.flamingo.ribbon.RibbonTask;
 import org.jvnet.flamingo.ribbon.resize.CoreRibbonResizePolicies;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
+import com.enuminfo.optimized.framework.View;
 import com.enuminfo.optimized.frontend.component.AboutDialog;
 import com.enuminfo.optimized.frontend.component.LookAndFeelDialog;
 import com.enuminfo.optimized.frontend.component.MessageBox;
-import com.enuminfo.optimized.frontend.contoller.AppController;
 import com.enuminfo.optimized.frontend.contoller.BankController;
 import com.enuminfo.optimized.frontend.contoller.CountryController;
 import com.enuminfo.optimized.frontend.contoller.DashboardController;
 import com.enuminfo.optimized.frontend.contoller.LocationController;
-import com.enuminfo.optimized.frontend.framework.View;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class AppView extends JRibbonFrame {
 
@@ -149,8 +148,7 @@ public class AppView extends JRibbonFrame {
 		cbtnCountries.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CountryController controller = new CountryController();
-				addPageToCenter(controller.getDataPageView());
+				onOpenCountries();
 			}
 		});
 		cbtnCountries.setActionKeyTip("C");
@@ -160,8 +158,7 @@ public class AppView extends JRibbonFrame {
 		cbtnLocations.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				LocationController controller = new LocationController();
-				addPageToCenter(controller.getDataPageView());
+				onOpenLocations();
 			}
 		});
 		cbtnLocations.setActionKeyTip("L");
@@ -171,8 +168,7 @@ public class AppView extends JRibbonFrame {
 		cbtnBanks.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BankController controller = new BankController();
-				addPageToCenter(controller.getDataPageView());
+				onOpenBanks();
 			}
 		});
 		cbtnBanks.setActionKeyTip("B");
@@ -291,5 +287,20 @@ public class AppView extends JRibbonFrame {
 		centerPanel.revalidate();
 		centerPanel.repaint();
 		page.asComponent().requestFocus();
+	}
+
+	public void onOpenLocations() {
+		LocationController controller = new LocationController();
+		addPageToCenter(controller.getDataPageView());
+	}
+
+	public void onOpenBanks() {
+		BankController controller = new BankController();
+		addPageToCenter(controller.getDataPageView());
+	}
+
+	public void onOpenCountries() {
+		CountryController controller = new CountryController();
+		addPageToCenter(controller.getDataPageView());
 	}
 }

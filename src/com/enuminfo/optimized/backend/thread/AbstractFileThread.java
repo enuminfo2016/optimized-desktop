@@ -18,7 +18,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.enuminfo.optimized.frontend.model.Base;
+import com.enuminfo.optimized.backend.model.Base;
 
 /**
  * @author AKURATI
@@ -63,7 +63,7 @@ public abstract class AbstractFileThread<T extends Base> implements Callable<Obj
 				}
 			}
 		}
-		return 0;
+		return getInputFile() + " : " + 0;
 	}
 	
 	private Object readCsvFile() {

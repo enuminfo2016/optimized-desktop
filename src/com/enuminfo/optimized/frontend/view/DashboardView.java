@@ -5,25 +5,30 @@ package com.enuminfo.optimized.frontend.view;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.jdesktop.swingx.JXHyperlink;
 import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.painter.decoration.DecorationAreaType;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.framework.PageController;
-import com.enuminfo.optimized.frontend.framework.PageView;
+import com.enuminfo.optimized.framework.PageController;
+import com.enuminfo.optimized.framework.PageView;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class DashboardView implements PageView {
 
@@ -60,6 +65,24 @@ public class DashboardView implements PageView {
 	private Component getCenterPanel() {
 		JPanel centerPanel = new JPanel(new MigLayout("insets 200 200 200 200"));
 		return centerPanel;
+	}
+	
+	@SuppressWarnings("unused")
+	private JPanel createItemPanel(String iconPath, String title, final AbstractAction openAction) {
+		JPanel itemPanel = new JPanel(new BorderLayout());
+		JLabel lblItem = new JLabel(new ImageIcon(getClass().getResource(iconPath)));
+		lblItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		lblItem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent me) {
+				openAction.actionPerformed(null);
+			}
+		});
+		JXHyperlink link = new JXHyperlink(openAction);
+		link.setText(title);
+		itemPanel.add(lblItem, BorderLayout.NORTH);
+		itemPanel.add(link, BorderLayout.SOUTH);
+		return itemPanel;
 	}
 
 	private Component getHeaderBar() {

@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class IconLabel extends JLabel {
 

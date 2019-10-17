@@ -6,7 +6,7 @@ package com.enuminfo.optimized.backend;
 import java.sql.SQLException;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class PostgresConnectionPool extends AbstractConnectionPool {
 

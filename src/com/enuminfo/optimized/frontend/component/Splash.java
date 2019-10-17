@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class Splash extends JFrame {
 

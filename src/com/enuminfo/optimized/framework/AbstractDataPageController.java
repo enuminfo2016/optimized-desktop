@@ -1,27 +1,27 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
-import com.enuminfo.optimized.frontend.I18n;
+import com.enuminfo.optimized.backend.model.Base;
+import com.enuminfo.optimized.backend.repository.AbstractRepository;
 import com.enuminfo.optimized.frontend.component.MessageBox;
-import com.enuminfo.optimized.frontend.model.Base;
-import com.enuminfo.optimized.frontend.service.AbstractService;
+import com.enuminfo.optimized.uitl.I18n;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public abstract class AbstractDataPageController<T extends Base> implements DataPageController<T> {
 
-	private AbstractService<T> service;
+	private AbstractRepository<T> service;
 	private DataPageView<T> dataPageView;
 
-	protected abstract AbstractService<T> createService();
+	protected abstract AbstractRepository<T> createRepository();
 
 	@Override
-	public AbstractService<T> getService() {
+	public AbstractRepository<T> getRepository() {
 		if (service == null)
-			service = createService();
+			service = createRepository();
 		return service;
 	}
 
@@ -56,7 +56,7 @@ public abstract class AbstractDataPageController<T extends Base> implements Data
 			return;
 		if (MessageBox.showAskYesNo(I18n.COMMON.getString("MessageBox.Confirm.Delete")) == MessageBox.YES_OPTION) {
 			try {
-				getService().edit(dataPageView.getSelectedModel());
+				getRepository().remove(dataPageView.getSelectedModel());
 				onRefresh();
 			} catch (Exception e) {
 				MessageBox.showError(I18n.COMMON.getString("Messages.Error.DeleteError"), e);
@@ -73,10 +73,7 @@ public abstract class AbstractDataPageController<T extends Base> implements Data
 	@Override
 	public void onSave(T model) {
 		try {
-			if (model.getId() == 0)
-				getService().add(model);
-			else
-				getService().edit(model);
+			getRepository().save(model);
 		} catch (Exception e) {
 			MessageBox.showError(I18n.COMMON.getString("Messages.Error.SaveError"), e);
 		}

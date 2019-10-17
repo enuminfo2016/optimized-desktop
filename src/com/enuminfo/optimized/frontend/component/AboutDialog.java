@@ -3,9 +3,9 @@
  */
 package com.enuminfo.optimized.frontend.component;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.contoller.AppController;
+import com.enuminfo.optimized.frontend.AppController;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ import org.jdesktop.swingx.JXHeader;
 import org.jdesktop.swingx.JXHyperlink;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class AboutDialog extends JDialog {
 

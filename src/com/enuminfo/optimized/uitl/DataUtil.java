@@ -6,9 +6,9 @@ package com.enuminfo.optimized.uitl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.enuminfo.optimized.frontend.model.Bank;
-import com.enuminfo.optimized.frontend.model.Country;
-import com.enuminfo.optimized.frontend.model.Location;
+import com.enuminfo.optimized.backend.model.Bank;
+import com.enuminfo.optimized.backend.model.Country;
+import com.enuminfo.optimized.backend.model.Location;
 
 /**
  * @author AKURATI

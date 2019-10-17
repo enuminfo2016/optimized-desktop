@@ -6,7 +6,7 @@ package com.enuminfo.optimized.frontend.component;
 import java.io.Serializable;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public class ComboBoxItem implements Serializable {
 

@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.enuminfo.optimized.frontend.model;
+package com.enuminfo.optimized.backend.model;
 
 import java.io.Serializable;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public abstract class Base implements Serializable {
 

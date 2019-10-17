@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.enuminfo.optimized.frontend.framework;
+package com.enuminfo.optimized.framework;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -20,12 +20,12 @@ import org.jvnet.substance.api.ComponentState;
 import org.jvnet.substance.api.SubstanceColorScheme;
 import org.jvnet.substance.utils.SubstanceColorSchemeUtilities;
 
-import com.enuminfo.optimized.frontend.I18n;
-import com.enuminfo.optimized.frontend.ViewHelpers;
-import com.enuminfo.optimized.frontend.model.Base;
+import com.enuminfo.optimized.backend.model.Base;
+import com.enuminfo.optimized.uitl.I18n;
+import com.enuminfo.optimized.uitl.ViewHelpers;
 
 /**
- * @author Kumar
+ * @author AKURATI
  */
 public abstract class AbstractPreviewPanel<T extends Base> extends JPanel {
 
