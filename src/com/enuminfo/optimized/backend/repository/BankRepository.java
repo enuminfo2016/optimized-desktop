@@ -31,9 +31,9 @@ public class BankRepository extends AbstractRepository<Bank> {
 			bank.setContact(String.valueOf(record[2]));
 			bank.setEmail(String.valueOf(record[3]));
 			bank.setAddress(String.valueOf(record[4]));
-			bank.setBranch(String.valueOf(record[4]));
-			bank.setIfsc(String.valueOf(record[5]));
-			bank.setMicr(String.valueOf(record[5]));
+			bank.setBranch(String.valueOf(record[5]));
+			bank.setIfsc(String.valueOf(record[6]));
+			bank.setMicr(String.valueOf(record[7]));
 			banks.add(bank);
 		}
 		return banks;
