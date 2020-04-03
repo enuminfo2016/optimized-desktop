@@ -25,7 +25,7 @@ public abstract class AbstractRepository<T extends Base> {
 
 	private final Class<T> modelClass;
 	private final Logger appLogger;
-	private AbstractConnectionPool connectionPool;
+	protected AbstractConnectionPool connectionPool;
 
 	public AbstractRepository(Class<T> modelClass) {
 		this.modelClass = modelClass;
@@ -49,9 +49,7 @@ public abstract class AbstractRepository<T extends Base> {
 		return appLogger;
 	}
 
-	public void save(T model) {
-		
-	}
+	public abstract void save(T model);
 
 	public T findOne(Integer id) {
 		return null;
@@ -94,10 +92,14 @@ public abstract class AbstractRepository<T extends Base> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+		StringBuilder builder = new StringBuilder(getNamedQuery());
 		try {
 			connection = connectionPool.getConnection();
-			getAppLogger().info(getNamedQueryWithParameters(parameters));
-			preparedStatement = connection.prepareStatement(getNamedQueryWithParameters(parameters));
+			builder.append(" WHERE ");
+			parameters.forEach((key, value) -> builder.append(key + " = '" + value + "' AND "));
+			String sqlQuery = builder.toString().substring(0, builder.toString().length() - 5);
+			getAppLogger().info(sqlQuery);
+			preparedStatement = connection.prepareStatement(sqlQuery);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				int cols = resultSet.getMetaData().getColumnCount();
@@ -125,10 +127,6 @@ public abstract class AbstractRepository<T extends Base> {
 
 	protected abstract String getNamedQuery();
 
-	protected abstract String getNamedQueryWithParameters(Map<String, Object> parameters);
-	
-	protected abstract List<T> getSpecificValuesFromDBWithPaging(List<Object[]> records, int start, int end);
-	
 	public List<T> findByColumn(Map<String, Object> parameters) {
 		return getSpecificValuesFromDB(executeNamedQueryWithParameters(parameters));
 	}
@@ -141,7 +139,7 @@ public abstract class AbstractRepository<T extends Base> {
 		return getSpecificValuesFromDBWithPaging(executeNamedQuery(), start, end);
 	}
 
-	private void closePreparedStatement(PreparedStatement preparedStatement) {
+	protected void closePreparedStatement(PreparedStatement preparedStatement) {
 		try {
 			if (preparedStatement != null)
 				preparedStatement.close();
@@ -150,7 +148,7 @@ public abstract class AbstractRepository<T extends Base> {
 		}
 	}
 	
-	private void closeResultSet(ResultSet resultSet) {
+	protected void closeResultSet(ResultSet resultSet) {
 		try {
 			if (resultSet != null)
 				resultSet.close();
@@ -159,8 +157,22 @@ public abstract class AbstractRepository<T extends Base> {
 		}
 	}
 	
-	private void closeConnection(Connection connection) {
+	protected void closeConnection(Connection connection) {
 		if (connection != null)
 			connectionPool.free(connection);
+	}
+	
+	protected List<T> getPagingList(List<T> list, int start, int end) {
+		List<T> finalList = new ArrayList<T>();
+		if (end > list.size()) end = list.size();
+		for (int i = start; i < end; i++) {
+			finalList.add(list.get(i));
+		}
+		return finalList;
+	}
+
+	protected List<T> getSpecificValuesFromDBWithPaging(List<Object[]> records, int start, int end) {
+		List<T> list = getSpecificValuesFromDB(records);
+		return getPagingList(list, start, end);
 	}
 }

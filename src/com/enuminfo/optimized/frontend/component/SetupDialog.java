@@ -4,19 +4,16 @@
 package com.enuminfo.optimized.frontend.component;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
 import org.jdesktop.swingx.JXHeader;
 
@@ -39,15 +36,7 @@ public class SetupDialog extends JDialog {
     private Action actionOk;
     private JButton btnCancel;
     private Action actionCancel;
-	private JTextField userTextField;
-    private JTextField passTextField;
-    private JComboBox branchComboBox;
-    private JComboBox roleComboBox;
     private int initialVal;
-    private String username;
-    private String password;
-    private String branchName;
-    private String roleName;
     private String strBtnOk;
     private String strBtnCancel;
     
@@ -105,8 +94,6 @@ public class SetupDialog extends JDialog {
     	JPanel buttonBar = new JPanel(new BorderLayout());
         buttonBar.add(buttonPanel, BorderLayout.CENTER);
     	getContentPane().add(buttonBar, BorderLayout.SOUTH);
-    	// UIUtil.placeInMiddlePartOfTheScreen(this);
-    	// UIUtil.createAndShow(this);
         setModal(true);
 	}
 

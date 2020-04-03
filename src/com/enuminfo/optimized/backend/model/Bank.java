@@ -17,7 +17,8 @@ public class Bank extends Base {
 	private String micr;
 	private String branch;
 	private String address;
-	private long contact;
+	private String contact;
+	private String email;
 	
 	public Bank() {
 		// TODO Auto-generated constructor stub
@@ -37,6 +38,14 @@ public class Bank extends Base {
 
 	public void setIfsc(String ifsc) {
 		this.ifsc = ifsc;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getMicr() {
@@ -63,11 +72,11 @@ public class Bank extends Base {
 		this.address = address;
 	}
 
-	public long getContact() {
+	public String getContact() {
 		return contact;
 	}
 
-	public void setContact(long contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 }

@@ -11,19 +11,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Callable;
 
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.enuminfo.optimized.backend.model.Base;
 
 /**
  * @author AKURATI
  */
-public abstract class AbstractFileThread<T extends Base> implements Callable<Object> {
+public abstract class AbstractFileThread<T extends Base> implements Runnable {
 
 	private String inputFile;
 	private final Class<T> modelClass;
@@ -47,26 +46,26 @@ public abstract class AbstractFileThread<T extends Base> implements Callable<Obj
 	}
 
 	@Override
-	public Object call() {
+	public void run() {
 		if ((new File(getInputFile()).isFile()) && (getFileExtension(getInputFile()).equals(XLSX_EXTENSION) || getFileExtension(getInputFile()).equals(XLS_EXTENSION))) {
-			return readExcelFile();
+			readExcelFile();
 		} else if ((new File(getInputFile()).isFile()) && getFileExtension(getInputFile()).equals(CSV_EXTENSION)) {
-			return readCsvFile();
+			readCsvFile();
 		} else if (!new File(getInputFile()).isFile()) {
 			File[] files = new File(getInputFile()).listFiles();
 			for (File file : files) {
 				inputFile = file.getAbsolutePath();
 				if ((file.isFile()) && (getFileExtension(file.getName()).equals(XLSX_EXTENSION) || getFileExtension(file.getName()).equals(XLS_EXTENSION))) {
-					return readExcelFile();
+					readExcelFile();
 				} else if ((file.isFile()) && getFileExtension(file.getName()).equals(CSV_EXTENSION)) {
-					return readCsvFile();
+					readCsvFile();
 				}
 			}
+			convertArrayToSpecfic();
 		}
-		return getInputFile() + " : " + 0;
 	}
 	
-	private Object readCsvFile() {
+	private void readCsvFile() {
 		BufferedReader bufferedReader = null;
         String line = "";
         String cvsSplitBy = ",";
@@ -78,47 +77,54 @@ public abstract class AbstractFileThread<T extends Base> implements Callable<Obj
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        return convertArrayToSpecfic();
+        convertArrayToSpecfic();
 	}
 
-	protected abstract Object convertArrayToSpecfic();
+	protected abstract void convertArrayToSpecfic();
 
-	private Object readExcelFile() {
-		XSSFWorkbook workbook = null;
+	private void readExcelFile() {
+		HSSFWorkbook workbook = null;
 		try {
 			FileInputStream fileInputStream = new FileInputStream(new File(getInputFile()));
-			workbook = new XSSFWorkbook(fileInputStream);
-			XSSFSheet sheet = workbook.getSheetAt(0);
+			workbook = new HSSFWorkbook(fileInputStream);
+			HSSFSheet sheet = workbook.getSheet("Sheet1");
 			Iterator<Row> rowIterator = sheet.iterator();
+			rowIterator.next();
 			while (rowIterator.hasNext()) {
 				Row row = rowIterator.next();
 				Iterator<Cell> cellIterator = row.cellIterator();
+				String[] objects = new String[row.getLastCellNum()];
+				int index = 0;
 				while (cellIterator.hasNext()) {
 					Cell cell = cellIterator.next();
 					switch (cell.getCellType()) {
 					case BLANK:
 						break;
 					case BOOLEAN:
+						objects[index] = String.valueOf(cell.getBooleanCellValue());
 						break;
 					case ERROR:
 						break;
 					case FORMULA:
 						break;
 					case NUMERIC:
+						objects[index] = String.valueOf((int) cell.getNumericCellValue());
 						break;
 					case STRING:
+						objects[index] = cell.getStringCellValue();
 						break;
 					case _NONE:
 						break;
 					default:
 						break;
 					}
+					index++;
 				}
+				list.add(objects);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return 0;
 	}
 
 	protected String getFileExtension(String inputFile) {
