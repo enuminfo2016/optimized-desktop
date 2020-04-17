@@ -31,8 +31,8 @@ public class BankView extends AbstractDataPageView<Bank> {
 				"name", String.class, 300));
 		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Bank.Page.Ifsc"),
 				"ifsc", String.class, 100));
-		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Bank.Page.Micr"),
-				"micr", String.class, 100));
+		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Bank.Page.Email"),
+				"email", String.class, 100));
 		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Bank.Page.Branch"),
 				"branch", String.class, 100));
 		getTableModel().addColumn(new EntityTableColumn(I18n.OPTIMIZED.getString("Bank.Page.Contact"),

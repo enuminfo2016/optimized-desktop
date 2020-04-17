@@ -3,12 +3,11 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import com.enuminfo.optimized.backend.model.Bank;
-import com.enuminfo.optimized.backend.repository.AbstractRepository;
+import com.enuminfo.optimized.backend.repository.BaseRepository;
 import com.enuminfo.optimized.backend.repository.BankRepository;
 import com.enuminfo.optimized.framework.AbstractDataPageController;
 import com.enuminfo.optimized.framework.DataPageView;
@@ -34,7 +33,8 @@ public class BankController extends AbstractDataPageController<Bank> {
 		if (filter.equals("")) {
             return getRepository().findAllWithPaging(start, end);
         } else {
-            return getRepository().findByColumnWithPaging(with("name", "%" + filter + "%").parameters(), start, end);
+            //return getRepository().findByColumnWithPaging(with("name", "%" + filter + "%").parameters(), start, end);
+        	return new ArrayList<Bank>();
         }
 	}
 
@@ -43,7 +43,8 @@ public class BankController extends AbstractDataPageController<Bank> {
 		if (filter.equals("")) {
             return getRepository().findAll().size();
         } else {
-            return getRepository().findByColumn(with("name", "%" + filter + "%").parameters()).size();
+            // return getRepository().findByColumn(with("name", "%" + filter + "%").parameters()).size();
+        	return new ArrayList<Bank>().size();
         }
 	}
 
@@ -53,7 +54,7 @@ public class BankController extends AbstractDataPageController<Bank> {
 	}
 
 	@Override
-	protected AbstractRepository<Bank> createRepository() {
+	protected BaseRepository<Bank> createRepository() {
 		return new BankRepository();
 	}
 

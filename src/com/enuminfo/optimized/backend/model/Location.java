@@ -13,10 +13,10 @@ public class Location extends Base {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String name;
-	private long pin;
+	private String pin;
 	private String city;
 	private String state;
-	private String country;
+	private int country;
 	
 	public Location() {
 		// TODO Auto-generated constructor stub
@@ -30,11 +30,11 @@ public class Location extends Base {
 		this.name = name;
 	}
 
-	public long getPin() {
+	public String getPin() {
 		return pin;
 	}
 
-	public void setPin(long pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 
@@ -54,11 +54,11 @@ public class Location extends Base {
 		this.state = state;
 	}
 
-	public String getCountry() {
+	public int getCountry() {
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(int country) {
 		this.country = country;
 	}
 }

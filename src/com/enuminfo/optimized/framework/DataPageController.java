@@ -6,14 +6,14 @@ package com.enuminfo.optimized.framework;
 import java.util.List;
 
 import com.enuminfo.optimized.backend.model.Base;
-import com.enuminfo.optimized.backend.repository.AbstractRepository;
+import com.enuminfo.optimized.backend.repository.BaseRepository;
 
 /**
  * @author AKURATI
  */
 public interface DataPageController<T extends Base> extends Controller {
 
-	AbstractRepository<T> getRepository();
+	BaseRepository<T> getRepository();
 
 	DataPageView<T> getDataPageView();
 

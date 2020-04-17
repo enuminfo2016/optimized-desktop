@@ -8,15 +8,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.enuminfo.optimized.backend.model.Bank;
-import com.enuminfo.optimized.backend.repository.AbstractRepository;
-import com.enuminfo.optimized.backend.repository.BankRepository;
 
 /**
  * @author AKURATI
  */
 public class BankExcelThread extends AbstractFileThread<Bank> {
 	
-	private List<Bank> banks = new ArrayList<Bank>();
+	private List<Bank> banks;
 
 	public BankExcelThread() {
 		super(Bank.class, "C:\\Users\\" + System.getProperty("user.name") + "\\ifscodes\\");
@@ -24,6 +22,7 @@ public class BankExcelThread extends AbstractFileThread<Bank> {
 
 	@Override
 	protected void convertArrayToSpecfic() {
+		banks = new ArrayList<Bank>();
 		int i = 1;
 		for (String[] model : list) {
 			Bank bank = new Bank();
@@ -39,9 +38,11 @@ public class BankExcelThread extends AbstractFileThread<Bank> {
 				i++;
 			}
 		}
-		AbstractRepository<Bank> repository = new BankRepository();
+		//BaseRepository<Bank> repository = new BankRepository();
 		for (Iterator<Bank> iterator = banks.iterator(); iterator.hasNext();) {
-			repository.save(iterator.next());
+			Bank bank = iterator.next();
+			System.out.println(bank.getId() + "\t" + bank.getName() + "\t" + bank.getIfsc() + "\t" + bank.getMicr() + "\t" + bank.getBranch()+ "\t" + bank.getEmail());
+			//repository.save(iterator.next());
 		}
 	}
 }

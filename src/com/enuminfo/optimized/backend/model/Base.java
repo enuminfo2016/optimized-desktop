@@ -15,8 +15,7 @@ public abstract class Base implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int id;
-	private String updatedBy;
-	private String updatedOn;
+	private boolean status;
 
 	public Base() {
 		// TODO Auto-generated constructor stub
@@ -30,19 +29,11 @@ public abstract class Base implements Serializable {
 		this.id = id;
 	}
 
-	public String getUpdatedBy() {
-		return updatedBy;
+	public boolean isStatus() {
+		return status;
 	}
 
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public String getUpdatedOn() {
-		return updatedOn;
-	}
-
-	public void setUpdatedOn(String updatedOn) {
-		this.updatedOn = updatedOn;
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 }

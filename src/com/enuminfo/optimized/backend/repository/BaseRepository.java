@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,13 +22,13 @@ import com.enuminfo.optimized.backend.model.Base;
 /**
  * @author AKURATI
  */
-public abstract class AbstractRepository<T extends Base> {
+public abstract class BaseRepository<T extends Base> {
 
 	private final Class<T> modelClass;
 	private final Logger appLogger;
 	protected AbstractConnectionPool connectionPool;
 
-	public AbstractRepository(Class<T> modelClass) {
+	public BaseRepository(Class<T> modelClass) {
 		this.modelClass = modelClass;
 		this.appLogger = LoggerFactory.getLogger(modelClass);
 		try {
@@ -49,14 +50,30 @@ public abstract class AbstractRepository<T extends Base> {
 		return appLogger;
 	}
 
-	public abstract void save(T model);
-
-	public T findOne(Integer id) {
-		return null;
+	public void save(T model) {
+		
 	}
 
-	public void remove(T model) {
+	public List<T> findAll() {
+		return getSpecificValues(executeNamedQuery());
+	}
+
+	public T findOne(Integer id) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		return getSpecificValues(executeNamedQueryWithParameters(parameters)).get(0);
+	}
+
+	public void delete(T model) {
 		
+	}
+
+	public void update(T model) {
+		
+	}
+
+	public List<T> findAllWithPaging(int start, int end) {
+		return getSpecificValuesWithPaging(executeNamedQuery(), start, end);
 	}
 	
 	private List<Object[]> executeNamedQuery() {
@@ -66,8 +83,8 @@ public abstract class AbstractRepository<T extends Base> {
 		ResultSet resultSet = null;
 		try {
 			connection = connectionPool.getConnection();
-			getAppLogger().info(getNamedQuery());
-			preparedStatement = connection.prepareStatement(getNamedQuery());
+			getAppLogger().info(getSelectQuery());
+			preparedStatement = connection.prepareStatement(getSelectQuery());
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				int cols = resultSet.getMetaData().getColumnCount();
@@ -92,7 +109,7 @@ public abstract class AbstractRepository<T extends Base> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		StringBuilder builder = new StringBuilder(getNamedQuery());
+		StringBuilder builder = new StringBuilder(getSelectQuery());
 		try {
 			connection = connectionPool.getConnection();
 			builder.append(" WHERE ");
@@ -119,25 +136,12 @@ public abstract class AbstractRepository<T extends Base> {
 		return records;
 	}
 
-	public List<T> findAll() {
-		return getSpecificValuesFromDB(executeNamedQuery());
-	}
-
-	protected abstract List<T> getSpecificValuesFromDB(List<Object[]> records);
-
-	protected abstract String getNamedQuery();
-
-	public List<T> findByColumn(Map<String, Object> parameters) {
-		return getSpecificValuesFromDB(executeNamedQueryWithParameters(parameters));
-	}
-
-	public List<T> findByColumnWithPaging(Map<String, Object> parameters, int start, int end) {
-		return getSpecificValuesFromDBWithPaging(executeNamedQueryWithParameters(parameters), start, end);
-	}
-
-	public List<T> findAllWithPaging(int start, int end) {
-		return getSpecificValuesFromDBWithPaging(executeNamedQuery(), start, end);
-	}
+	protected abstract List<T> getSpecificValues(List<Object[]> records);
+	protected abstract String getSelectQuery();
+	protected abstract String getInsertQuery();
+	protected abstract String getUpdateQuery();
+	protected abstract String getDeleteQuery();
+	protected abstract Map<Integer, Object> putSpecificValues(T model);
 
 	protected void closePreparedStatement(PreparedStatement preparedStatement) {
 		try {
@@ -171,8 +175,8 @@ public abstract class AbstractRepository<T extends Base> {
 		return finalList;
 	}
 
-	protected List<T> getSpecificValuesFromDBWithPaging(List<Object[]> records, int start, int end) {
-		List<T> list = getSpecificValuesFromDB(records);
+	protected List<T> getSpecificValuesWithPaging(List<Object[]> records, int start, int end) {
+		List<T> list = getSpecificValues(records);
 		return getPagingList(list, start, end);
 	}
 }

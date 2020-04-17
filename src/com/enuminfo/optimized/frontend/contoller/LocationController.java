@@ -3,12 +3,11 @@
  */
 package com.enuminfo.optimized.frontend.contoller;
 
-import static com.enuminfo.optimized.backend.repository.QueryParameter.with;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import com.enuminfo.optimized.backend.model.Location;
-import com.enuminfo.optimized.backend.repository.AbstractRepository;
+import com.enuminfo.optimized.backend.repository.BaseRepository;
 import com.enuminfo.optimized.backend.repository.LocationRepository;
 import com.enuminfo.optimized.framework.AbstractDataPageController;
 import com.enuminfo.optimized.framework.DataPageView;
@@ -34,9 +33,12 @@ public class LocationController extends AbstractDataPageController<Location> {
 		if (filter.equals("")) {
             return getRepository().findAllWithPaging(start, end);
         } else {
-        	return getRepository().findByColumnWithPaging(with("name", "%" + filter + "%")
-            		.and("pin", "%" + filter + "%").and("city", "%" + filter + "%")
-            		.and("state", "%" + filter + "%").parameters(), start, end);
+			/*
+			 * return getRepository().findByColumnWithPaging(with("name", "%" + filter +
+			 * "%") .and("pin", "%" + filter + "%").and("city", "%" + filter + "%")
+			 * .and("state", "%" + filter + "%").parameters(), start, end);
+			 */
+        	return new ArrayList<Location>();
         }
 	}
 
@@ -45,9 +47,12 @@ public class LocationController extends AbstractDataPageController<Location> {
 		if (filter.equals("")) {
             return getRepository().findAll().size();
         } else {
-            return getRepository().findByColumn(with("name", "%" + filter + "%")
-            		.and("pin", "%" + filter + "%").and("city", "%" + filter + "%")
-            		.and("state", "%" + filter + "%").parameters()).size();
+			/*
+			 * return getRepository().findByColumn(with("name", "%" + filter + "%")
+			 * .and("pin", "%" + filter + "%").and("city", "%" + filter + "%") .and("state",
+			 * "%" + filter + "%").parameters()).size();
+			 */
+        	return new ArrayList<Location>().size();
         }
 	}
 
@@ -57,7 +62,7 @@ public class LocationController extends AbstractDataPageController<Location> {
 	}
 
 	@Override
-	protected AbstractRepository<Location> createRepository() {
+	protected BaseRepository<Location> createRepository() {
 		return new LocationRepository();
 	}
 

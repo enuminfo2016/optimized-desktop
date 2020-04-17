@@ -11,10 +11,14 @@ import com.enuminfo.optimized.backend.thread.LocationExcelThread;
  * @author SIVA KUMAR
  */
 public class RunExcel2DBSaveApplication {
-
-	public static void main(String[] args) {
+	
+	public RunExcel2DBSaveApplication() {
 		new CountryExcelThread().run();
 		new LocationExcelThread().run();
-		new BankExcelThread().run();		
+		new BankExcelThread().run();
+	}
+
+	public static void main(String[] args) {
+		new RunExcel2DBSaveApplication();
 	}
 }
